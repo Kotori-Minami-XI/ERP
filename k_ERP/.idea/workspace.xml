@@ -7,14 +7,155 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6a8237c-708c-440b-9411-e3d82549b416" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/common/common.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/css/platform.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/fonts/demo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/fonts/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/fonts/iconfont.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/fonts/iconfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/fonts/iconfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/fonts/iconfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/fonts/iconfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/login_bg_tubiao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/login_box.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/login_box_w.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/login_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/login_logo_w.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/login_top_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/login_top_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/loginbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/main_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/images/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/base.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/easyui-lang-zh_CN.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/easyui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/jquery.easyui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/accordion.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/calendar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/combobox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/css/base.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/css/login/login.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/datagrid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/datalist.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/datebox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/dialog.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/easyui.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/filebox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/fonticon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icon.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/back.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/blank.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/cancel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/clear.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/cut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/edit_add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/edit_remove.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/filesave.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/filter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/help.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/large_chart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/large_clipart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/large_picture.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/large_shapes.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/large_smartart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/list.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/lock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/man.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/mini_add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/mini_edit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/mini_refresh.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/more.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/no.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/ok.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/pencil.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/print.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/redo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/reload.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/sum.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/tip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/icons/undo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/accordion_arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/blank.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/calendar_arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/combo_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/datagrid_icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/datebox_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/layout_arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/linkbutton_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/loading.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/menu_arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/messager_icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/datebox_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/dialog_close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/grid.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/pagination_icons_disabeld.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/pagination_icons_hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/panel_tools_hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/spinner_arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/tab_dropdown.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/tab_dropdown_hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/tabs_close.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/tabs_close_hover.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/下拉菜单.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/面板.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/new/面板_如果左边图标可以直接用白色时候就只用这个.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/pagination_icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/panel_tools.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/searchbox_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/slider_handle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/spinner_arrows.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/tabs_icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/tree_icons.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/images/validatebox_warning.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/imgs/login/login_box.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/imgs/login/login_box_w.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/imgs/login/login_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/imgs/login/login_logo_w.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/imgs/login/login_top_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/imgs/login/login_top_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/imgs/login/loginbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/layout.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/linkbutton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/menu.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/menubutton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/messager.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/pagination.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/panel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/progressbar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/searchbox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/slider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/spinner.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/switchbutton.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/tab.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/textbox.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/tooltip.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/tree.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/view/login/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/view/login/login_white.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/plugins/easyui/uimaker/window.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/tree.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -53,14 +194,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\xz\Desktop\Java\ERP\k_ERP\src\main\webapp\static\js" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xz\Desktop\Java\ERP\k_ERP\src\main\webapp" />
       <recent name="C:\Users\xz\Desktop\Java\ERP\k_ERP\src\main\resources" />
     </key>
   </component>
@@ -213,6 +358,11 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
             </expand>
             <select />
           </treeState>
@@ -231,7 +381,7 @@
       <option name="presentableId" value="Default" />
       <updated>1588138903323</updated>
       <workItem from="1588138917339" duration="1118000" />
-      <workItem from="1588140479480" duration="1563000" />
+      <workItem from="1588140479480" duration="3529000" />
     </task>
     <servers />
   </component>
@@ -239,58 +389,58 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588139516707">
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588143438520">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1588139516707" />
-    <state width="904" height="272" key="GridCell.Tab.0.bottom" timestamp="1588140094832">
+    <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1588143438520" />
+    <state width="904" height="114" key="GridCell.Tab.0.bottom" timestamp="1588142223495">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588140094832" />
-    <state width="904" height="272" key="GridCell.Tab.0.center" timestamp="1588140094832">
+    <state width="904" height="114" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588142223495" />
+    <state width="904" height="114" key="GridCell.Tab.0.center" timestamp="1588142223494">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588140094832" />
-    <state width="904" height="272" key="GridCell.Tab.0.left" timestamp="1588140094832">
+    <state width="904" height="114" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588142223494" />
+    <state width="904" height="114" key="GridCell.Tab.0.left" timestamp="1588142223492">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588140094832" />
-    <state width="904" height="272" key="GridCell.Tab.0.right" timestamp="1588140094832">
+    <state width="904" height="114" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588142223492" />
+    <state width="904" height="114" key="GridCell.Tab.0.right" timestamp="1588142223494">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588140094832" />
-    <state width="904" height="272" key="GridCell.Tab.1.bottom" timestamp="1588140094833">
+    <state width="904" height="114" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588142223494" />
+    <state width="904" height="114" key="GridCell.Tab.1.bottom" timestamp="1588142223496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588140094833" />
-    <state width="904" height="272" key="GridCell.Tab.1.center" timestamp="1588140094832">
+    <state width="904" height="114" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588142223496" />
+    <state width="904" height="114" key="GridCell.Tab.1.center" timestamp="1588142223496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1588140094832" />
-    <state width="904" height="272" key="GridCell.Tab.1.left" timestamp="1588140094832">
+    <state width="904" height="114" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1588142223496" />
+    <state width="904" height="114" key="GridCell.Tab.1.left" timestamp="1588142223495">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1588140094832" />
-    <state width="904" height="272" key="GridCell.Tab.1.right" timestamp="1588140094833">
+    <state width="904" height="114" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1588142223495" />
+    <state width="904" height="114" key="GridCell.Tab.1.right" timestamp="1588142223496">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1588140094833" />
-    <state width="904" height="272" key="GridCell.Tab.2.bottom" timestamp="1588140094833">
+    <state width="904" height="114" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1588142223496" />
+    <state width="904" height="114" key="GridCell.Tab.2.bottom" timestamp="1588142223497">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588140094833" />
-    <state width="904" height="272" key="GridCell.Tab.2.center" timestamp="1588140094833">
+    <state width="904" height="114" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588142223497" />
+    <state width="904" height="114" key="GridCell.Tab.2.center" timestamp="1588142223497">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1588140094833" />
-    <state width="904" height="272" key="GridCell.Tab.2.left" timestamp="1588140094833">
+    <state width="904" height="114" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1588142223497" />
+    <state width="904" height="114" key="GridCell.Tab.2.left" timestamp="1588142223497">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1588140094833" />
-    <state width="904" height="272" key="GridCell.Tab.2.right" timestamp="1588140094833">
+    <state width="904" height="114" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1588142223497" />
+    <state width="904" height="114" key="GridCell.Tab.2.right" timestamp="1588142223497">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="904" height="272" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1588140094833" />
+    <state width="904" height="114" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1588142223497" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1588139462173">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

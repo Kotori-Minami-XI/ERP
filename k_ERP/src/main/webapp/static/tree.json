@@ -6,17 +6,17 @@
       {
         "id":2,
         "text": "员工管理",
-         "url": "/employee"
+         "url": "/employee.action"
       },
       {
         "id":3,
         "text": "权限管理",
-          "url": "/role"
+          "url": "/role.action"
       },
       {
         "id":4,
         "text": "菜单管理",
-        "url": "/menu"
+        "url": "/menu.action"
 
       }
     ]

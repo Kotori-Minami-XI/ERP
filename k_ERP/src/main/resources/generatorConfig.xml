@@ -36,8 +36,9 @@
 		</commentGenerator>
 
 		<!-- 数据库连接信息 -->
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql:///mybatis" userId="root" password="1234">
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+						connectionURL="jdbc:mysql://localhost:3306/k_erp?characterEncoding=utf-8&amp;serverTimezone=UTC&amp;rewriteBatchedStatements=true"
+						userId="root" password="19926172xz">
 		</jdbcConnection>
 
 		<!-- java类型处理器 用于处理数据库中的类型到Java中的类型，
@@ -59,7 +60,7 @@
         targetProject:把自动生成的domian放在哪个工程里面
         targetPackage:哪个包下
 		-->
-		<javaModelGenerator targetPackage="com.itlike.domain"
+		<javaModelGenerator targetPackage="com.Kotori.domain"
 							targetProject="src/main/java">
 			<!-- for MyBatis3/MyBatis3Simple
 			自动为每一个生成的类创建一个构造方法，
@@ -82,7 +83,7 @@
             targetPackage:把自动生成的mapper放在哪个工程里面
             targetProject:哪个包下
         -->
-		<sqlMapGenerator targetPackage="com.itlike.mapper"
+		<sqlMapGenerator targetPackage="com.Kotori.mapper"
 						 targetProject="src/main/java">
 			<!-- 在targetPackage的基础上，
 			根据数据库的schema再生成一层package，
@@ -93,12 +94,12 @@
 		<!--
            mapper接口生成策略
         -->
-		<javaClientGenerator targetPackage="com.itlike.mapper"
+		<javaClientGenerator targetPackage="com.Kotori.mapper"
 							 type="XMLMAPPER" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
-		<table tableName="teacher"></table>
+		<table tableName="employee"></table>
 
 	</context>
 </generatorConfiguration>

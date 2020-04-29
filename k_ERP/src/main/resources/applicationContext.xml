@@ -14,7 +14,10 @@
        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!-- Scan packages -->
-    <context:component-scan base-package="com.Kotori"/>
+    <context:component-scan base-package="com.Kotori">
+        <!--只扫描控制器 (只扫描带有@Controller注解的)-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <!-- Import mybatis config -->
     <import resource="classpath:application-mybatis.xml"/>

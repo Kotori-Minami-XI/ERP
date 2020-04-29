@@ -30,12 +30,6 @@
       <scope>test</scope>
     </dependency>
 
-    <!--lombok-->
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.16.6</version>
-    </dependency>
     <!-- servlet-api -->
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -53,7 +47,7 @@
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>druid</artifactId>
-      <version>1.0.14</version>
+      <version>1.1.15</version>
     </dependency>
     <!-- common-lang -->
     <dependency>
@@ -272,7 +266,7 @@
           <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.21</version>
+            <version>8.0.18</version>
           </dependency>
         </dependencies>
       </plugin>

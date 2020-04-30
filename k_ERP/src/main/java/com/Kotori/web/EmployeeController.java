@@ -1,5 +1,7 @@
 package com.Kotori.web;
 
+import com.Kotori.domain.AjaxResult;
+import com.Kotori.domain.Employee;
 import com.Kotori.domain.PageListResult;
 import com.Kotori.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +34,23 @@ public class EmployeeController {
     public PageListResult getEmployeeList() {
         PageListResult page = employeeService.getEmployeeList();
         return page;
+    }
+
+    @RequestMapping("/saveEmployee.action")
+    @ResponseBody
+    public AjaxResult saveEmployee(Employee employee) {
+        AjaxResult ajaxResult = new AjaxResult();
+        try {
+            // Always on duty when adding a new employee
+            employee.setState(true);
+            employeeService.saveEmployee(employee);
+            ajaxResult.setMsg("保存成功");
+            ajaxResult.setResult(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ajaxResult.setMsg("保存失败");
+            ajaxResult.setResult(false);
+        }
+        return ajaxResult;
     }
 }

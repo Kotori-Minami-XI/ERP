@@ -20,12 +20,10 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.Kotori.domain.Employee" >
-    insert into employee (id, username, inputtime, 
-      tel, email, state, admin, 
-      dept_no)
-    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{inputtime,jdbcType=TIMESTAMP}, 
+    insert into employee (id, username, password, inputtime, tel, email, state, admin, dept_no)
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{inputtime,jdbcType=TIMESTAMP},
       #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{state,jdbcType=BIT}, #{admin,jdbcType=BIT}, 
-      #{deptNo,jdbcType=BIGINT})
+      #{department.id,jdbcType=BIGINT})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.Kotori.domain.Employee" >
     update employee

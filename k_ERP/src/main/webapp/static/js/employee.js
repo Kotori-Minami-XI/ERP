@@ -28,6 +28,112 @@ $(function () {
     });
 
     // Add button
+    $('#add').click(function () {
+        $("#dialog").dialog("clear");
+        $("#dialog").dialog('open');
+    });
 
+    /* Department combobox */
+    $("#department").combobox({
+        width:160,
+        panelHeight:'auto',
+        editable:false,
+        url:'/getDepartmentList.action',
+        textField:'name',
+        valueField:'id',
+        onLoadSuccess:function () {
+            /* Callback function to reload placeholder*/
+            $("#department").each(function(i){
+                var span = $(this).siblings("span")[i];
+                var targetInput = $(span).find("input:first");
+                if(targetInput){
+                    $(targetInput).attr("placeholder", $(this).attr("placeholder"));
+                }
+            });
+        }
+    });
+
+    /* Admin combobox */
+    $("#state").combobox({
+        width:160,
+        panelHeight:'auto',
+        textField:'label',
+        valueField:'value',
+        editable:false,
+        data:[{label:'是', value:'true'},
+              {label:'否', value:'false'}],
+        onLoadSuccess:function () {
+            /* Callback function to reload placeholder*/
+            $("#state").each(function(i){
+                var span = $(this).siblings("span")[i];
+                var targetInput = $(span).find("input:first");
+                if(targetInput){
+                    $(targetInput).attr("placeholder", $(this).attr("placeholder"));
+                }
+            });
+        }
+
+    });
+
+    /* Dialog */
+    $("#dialog").dialog({
+        width:350,
+        height:400,
+        closed:true,
+        buttons:[{
+            text:'保存',
+            handler:function(){
+                /* Distinct edit or add operation */
+                var id = $("[name='id']").val();
+                var url;
+                if(id){
+                    /* Edit operation */
+                    url = "/updateEmployee.action";
+                }else {
+                    /* Add operation */
+                    url= "/saveEmployee.action";
+                }
+                url= "/saveEmployee.action";
+                /* Submit form */
+                $("#employeeForm").form("submit",{
+                    url: "/saveEmployee.action",
+                    success:function (data) {
+                        data = $.parseJSON(data);
+                        if (data.result) {
+                            $.messager("提示",data.msg);
+                            $("#dialog").dialog("close");
+                            $("#datagrid").datagrid("reload");
+                        } else {
+                            $.messager("提示",data.msg);
+                        }
+                    }
+
+                    // onSubmit:function(param){
+                    //     var values =  $("#role").combobox("getValues");
+                    //     for(var i = 0; i < values.length; i++){
+                    //         var rid  =  values[i];
+                    //         param["roles["+i+"].rid"] = rid;
+                    //     }
+                    // },
+                    // success:function (data) {
+                    //     data = $.parseJSON(data);
+                    //     if (data.success){
+                    //         $.messager.alert("温馨提示",data.msg);
+                    //         $("#dialog").dialog("close");
+                    //         /* Reload data into datagrid */
+                    //         $("#dg").datagrid("reload");
+                    //     } else {
+                    //         $.messager.alert("温馨提示",data.msg);
+                    //     }
+                    // }
+                });
+            }
+        },{
+            text:'关闭',
+            handler:function(){
+                $("#dialog").dialog("close");
+            }
+        }]
+    });
 
 });

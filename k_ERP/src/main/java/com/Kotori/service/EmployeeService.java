@@ -1,9 +1,8 @@
 package com.Kotori.service;
 
-import com.Kotori.domain.Employee;
 
-import java.util.List;
+import com.Kotori.domain.PageListResult;
 
 public interface EmployeeService {
-    public List<Employee> getEmployeeList();
+    public PageListResult getEmployeeList();
 }

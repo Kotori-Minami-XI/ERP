@@ -38,6 +38,7 @@ $(function () {
         $("[name='password']").validatebox({required:true});
     });
 
+    // Edit button
     $("#edit").click(function () {
         window.behavior = "edit_behavior";
         var rowData = $("#datagrid").datagrid("getSelected");
@@ -59,6 +60,30 @@ $(function () {
         //     $("#role").combobox("setValues",data);
         // });
         $("#employeeForm").form("load",rowData);
+    });
+
+    // delete button
+    $("#delete").click(function () {
+        var rowData = $("#datagrid").datagrid("getSelected");
+        console.log(rowData);
+        if(!rowData){
+            $.messager.alert("提示","选择一行数据进行编辑");
+            return;
+        }
+        $.messager.confirm("确认", "确定离职吗",function (choice) {
+            if (choice == true) {
+                // Resign operation
+                $.get("/updateState.action?id="+rowData.id,function (data) {
+                    if (data.result) {
+                        $.messager.alert("提示",data.msg);
+                        $("#datagrid").datagrid("reload");
+                    } else {
+                        $.messager.alert("提示",data.msg);
+                    }
+                });
+            }
+        });
+
     });
 
     /* Department combobox */

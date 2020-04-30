@@ -13,4 +13,6 @@ public interface EmployeeMapper {
     List<Employee> selectAll();
 
     int updateByPrimaryKey(Employee record);
+
+    void updateStateById(Long id);
 }

@@ -19,12 +19,14 @@
     delete from employee
     where id = #{id,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="com.Kotori.domain.Employee" >
     insert into employee (id, username, password, inputtime, tel, email, state, admin, dept_no)
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{inputtime,jdbcType=TIMESTAMP},
       #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{state,jdbcType=BIT}, #{admin,jdbcType=BIT}, 
       #{department.id,jdbcType=BIGINT})
   </insert>
+
   <update id="updateByPrimaryKey" parameterType="com.Kotori.domain.Employee" >
     update employee
     set username = #{username,jdbcType=VARCHAR},
@@ -35,13 +37,20 @@
       dept_no = #{department.id,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <update id="updateStateById" parameterType="java.lang.Long">
+    update employee set state = false where id = #{id,jdbcType=BIGINT}
+  </update>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select id, username, inputtime, tel, email, state, admin, dept_no
     from employee
     where id = #{id,jdbcType=BIGINT}
   </select>
+
   <select id="selectAll" resultMap="BaseResultMap" >
     select e.id, e.username, e.inputtime, e.tel, e.email, e.state, e.admin, e.dept_no, d.id AS d_id, d.name AS d_name
     from employee AS e LEFT JOIN department AS d ON e.dept_no = d.id
   </select>
+
 </mapper>

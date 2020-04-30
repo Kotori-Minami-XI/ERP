@@ -10,4 +10,6 @@ public interface EmployeeService {
     void saveEmployee(Employee employee);
 
     void updateEmployee(Employee employee);
+
+    void updateState(Long id);
 }

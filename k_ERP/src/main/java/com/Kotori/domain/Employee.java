@@ -1,8 +1,5 @@
 package com.Kotori.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.util.Date;
 
 public class Employee {
@@ -10,8 +7,6 @@ public class Employee {
 
     private String username;
 
-    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date inputtime;
 
     private String tel;
@@ -22,7 +17,7 @@ public class Employee {
 
     private Boolean admin;
 
-    private Long deptNo;
+    private Department department;
 
     public Long getId() {
         return id;
@@ -80,12 +75,12 @@ public class Employee {
         this.admin = admin;
     }
 
-    public Long getDeptNo() {
-        return deptNo;
+    public Department getDepartment() {
+        return department;
     }
 
-    public void setDeptNo(Long deptNo) {
-        this.deptNo = deptNo;
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     @Override
@@ -98,7 +93,7 @@ public class Employee {
                 ", email='" + email + '\'' +
                 ", state=" + state +
                 ", admin=" + admin +
-                ", deptNo=" + deptNo +
+                ", department=" + department +
                 '}';
     }
 }

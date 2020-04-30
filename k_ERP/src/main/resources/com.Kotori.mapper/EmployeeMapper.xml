@@ -9,7 +9,11 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="state" property="state" jdbcType="BIT" />
     <result column="admin" property="admin" jdbcType="BIT" />
-    <result column="dept_no" property="deptNo" jdbcType="BIGINT" />
+    <association property="department" javaType="com.Kotori.domain.Department" columnPrefix="d_">
+      <result column="id" property="id"></result>
+      <result column="name" property="name"></result>
+    </association>
+
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from employee
@@ -40,7 +44,7 @@
     where id = #{id,jdbcType=BIGINT}
   </select>
   <select id="selectAll" resultMap="BaseResultMap" >
-    select id, username, inputtime, tel, email, state, admin, dept_no
-    from employee
+    select e.id, e.username, e.inputtime, e.tel, e.email, e.state, e.admin, e.dept_no, d.id AS d_id, d.name AS d_name
+    from employee AS e LEFT JOIN department AS d ON e.dept_no = d.id
   </select>
 </mapper>

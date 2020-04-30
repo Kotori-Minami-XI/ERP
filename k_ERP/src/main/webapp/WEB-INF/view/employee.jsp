@@ -26,12 +26,14 @@
 <%-- Dialog--%>
 <div id="dialog">
     <form id="employeeForm" method="post">
+        <%-- hidden tag to store id--%>
+        <input type="hidden" name="id">
         <table align="center" style="border-spacing: 0px 10px">
             <tr>
                 <td>用户名:</td>
                 <td><input type="text" name="username" class="easyui-validatebox"></td>
             </tr>
-            <tr>
+            <tr id="password">
                 <td>密码:</td>
                 <td><input type="text" name="password" class="easyui-validatebox"></td>
             </tr>

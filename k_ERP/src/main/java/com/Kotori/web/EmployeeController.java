@@ -53,4 +53,22 @@ public class EmployeeController {
         }
         return ajaxResult;
     }
+
+    @RequestMapping("/updateEmployee.action")
+    @ResponseBody
+    public AjaxResult updateEmployee(Employee employee) {
+        AjaxResult ajaxResult = new AjaxResult();
+        try {
+            // Always on duty when adding a new employee
+            employee.setState(true);
+            employeeService.updateEmployee(employee);
+            ajaxResult.setMsg("更新成功");
+            ajaxResult.setResult(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ajaxResult.setMsg("更新失败");
+            ajaxResult.setResult(false);
+        }
+        return ajaxResult;
+    }
 }

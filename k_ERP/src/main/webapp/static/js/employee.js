@@ -20,6 +20,7 @@ $(function () {
                         return row.admin ? "是" : "否";
             }}
         ]],
+        singleSelect: true,
         fit:true,
         fitColumns:true,
         rownumbers:true,
@@ -29,8 +30,35 @@ $(function () {
 
     // Add button
     $('#add').click(function () {
-        $("#dialog").dialog("clear");
+        window.behavior = "add_behavior";
+        $("#employeeForm").form("clear");
         $("#dialog").dialog('open');
+
+        $("#password").show();
+        $("[name='password']").validatebox({required:true});
+    });
+
+    $("#edit").click(function () {
+        window.behavior = "edit_behavior";
+        var rowData = $("#datagrid").datagrid("getSelected");
+        console.log(rowData);
+        if(!rowData){
+            $.messager.alert("提示","选择一行数据进行编辑");
+            return;
+        }
+        $("[name='password']").validatebox({required:false});
+        $("#password").hide();
+
+        $("#dialog").dialog("setTitle","编辑员工");
+        $("#dialog").dialog("open");
+
+        rowData["department.id"] = rowData["department"].id;
+        rowData["admin"] = rowData["admin"].toString();
+
+        // $.get("/getRoleByEid?id="+rowData.id,function (data) {
+        //     $("#role").combobox("setValues",data);
+        // });
+        $("#employeeForm").form("load",rowData);
     });
 
     /* Department combobox */
@@ -84,27 +112,29 @@ $(function () {
             text:'保存',
             handler:function(){
                 /* Distinct edit or add operation */
-                var id = $("[name='id']").val();
+                var behavior = window.behavior;
                 var url;
-                if(id){
+                if(behavior == "edit_behavior"){
                     /* Edit operation */
                     url = "/updateEmployee.action";
-                }else {
+                }else if (behavior == "add_behavior") {
                     /* Add operation */
                     url= "/saveEmployee.action";
+                } else {
+                    url= "/";
                 }
-                url= "/saveEmployee.action";
+
                 /* Submit form */
                 $("#employeeForm").form("submit",{
-                    url: "/saveEmployee.action",
+                    url: url,
                     success:function (data) {
                         data = $.parseJSON(data);
                         if (data.result) {
-                            $.messager("提示",data.msg);
+                            $.messager.alert("提示",data.msg);
                             $("#dialog").dialog("close");
                             $("#datagrid").datagrid("reload");
                         } else {
-                            $.messager("提示",data.msg);
+                            $.messager.alert("提示",data.msg);
                         }
                     }
 

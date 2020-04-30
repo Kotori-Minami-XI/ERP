@@ -31,9 +31,8 @@
       inputtime = #{inputtime,jdbcType=TIMESTAMP},
       tel = #{tel,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
-      state = #{state,jdbcType=BIT},
       admin = #{admin,jdbcType=BIT},
-      dept_no = #{deptNo,jdbcType=BIGINT}
+      dept_no = #{department.id,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >

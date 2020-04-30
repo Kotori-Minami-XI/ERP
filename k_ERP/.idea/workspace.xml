@@ -6,31 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6a8237c-708c-440b-9411-e3d82549b416" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/k_ERP.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Kotori/domain/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Kotori/mapper/EmployeeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Kotori/service/EmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Kotori/service/EmployeeServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Kotori/web/EmployeeController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Kotori/web/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/Kotori/web/RoleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com.Kotori.mapper/EmployeeMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/employee.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/menu.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/role.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/static/js/employee.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-mybatis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/static/tree.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/static/tree.json" afterDir="false" />
-    </list>
+    <list default="true" id="b6a8237c-708c-440b-9411-e3d82549b416" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,14 +66,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\54356\Desktop\Java\ERP\k_ERP\src\main\resources\com.Kotori.mapper" />
-      <recent name="C:\Users\xz\Desktop\Java\ERP\k_ERP\src\main\webapp\static\js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\54356\Desktop\Java\ERP\k_ERP\src\main\webapp\WEB-INF\view" />
       <recent name="C:\Users\xz\Desktop\Java\ERP\k_ERP\src\main\webapp" />
       <recent name="C:\Users\xz\Desktop\Java\ERP\k_ERP\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\54356\Desktop\Java\ERP\k_ERP\src\main\resources\com.Kotori.mapper" />
+      <recent name="C:\Users\xz\Desktop\Java\ERP\k_ERP\src\main\webapp\static\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -302,66 +278,66 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="508" y="113" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588200626735" />
-    <state width="1293" height="331" key="GridCell.Tab.0.bottom" timestamp="1588201284483">
+    <state width="1293" height="492" key="GridCell.Tab.0.bottom" timestamp="1588206725883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588142223495" />
-    <state width="1293" height="331" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284483" />
-    <state width="1293" height="331" key="GridCell.Tab.0.center" timestamp="1588201284483">
+    <state width="1293" height="492" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725883" />
+    <state width="1293" height="492" key="GridCell.Tab.0.center" timestamp="1588206725883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1588142223494" />
-    <state width="1293" height="331" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284483" />
-    <state width="1293" height="331" key="GridCell.Tab.0.left" timestamp="1588201284483">
+    <state width="1293" height="492" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725883" />
+    <state width="1293" height="492" key="GridCell.Tab.0.left" timestamp="1588206725883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1588142223492" />
-    <state width="1293" height="331" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284483" />
-    <state width="1293" height="331" key="GridCell.Tab.0.right" timestamp="1588201284483">
+    <state width="1293" height="492" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725883" />
+    <state width="1293" height="492" key="GridCell.Tab.0.right" timestamp="1588206725883">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1588142223494" />
-    <state width="1293" height="331" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284483" />
-    <state width="1293" height="331" key="GridCell.Tab.1.bottom" timestamp="1588201284396">
+    <state width="1293" height="492" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725883" />
+    <state width="1293" height="492" key="GridCell.Tab.1.bottom" timestamp="1588206725813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588142223496" />
-    <state width="1293" height="331" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284396" />
-    <state width="1293" height="331" key="GridCell.Tab.1.center" timestamp="1588201284396">
+    <state width="1293" height="492" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725813" />
+    <state width="1293" height="492" key="GridCell.Tab.1.center" timestamp="1588206725813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1588142223496" />
-    <state width="1293" height="331" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284396" />
-    <state width="1293" height="331" key="GridCell.Tab.1.left" timestamp="1588201284396">
+    <state width="1293" height="492" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725813" />
+    <state width="1293" height="492" key="GridCell.Tab.1.left" timestamp="1588206725813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1588142223495" />
-    <state width="1293" height="331" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284396" />
-    <state width="1293" height="331" key="GridCell.Tab.1.right" timestamp="1588201284396">
+    <state width="1293" height="492" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725813" />
+    <state width="1293" height="492" key="GridCell.Tab.1.right" timestamp="1588206725813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1588142223496" />
-    <state width="1293" height="331" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284396" />
-    <state width="1293" height="331" key="GridCell.Tab.2.bottom" timestamp="1588201284396">
+    <state width="1293" height="492" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725813" />
+    <state width="1293" height="492" key="GridCell.Tab.2.bottom" timestamp="1588206725813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.2.bottom/0.0.1366.728@0.0.1366.728" timestamp="1588142223497" />
-    <state width="1293" height="331" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284396" />
-    <state width="1293" height="331" key="GridCell.Tab.2.center" timestamp="1588201284396">
+    <state width="1293" height="492" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725813" />
+    <state width="1293" height="492" key="GridCell.Tab.2.center" timestamp="1588206725813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.2.center/0.0.1366.728@0.0.1366.728" timestamp="1588142223497" />
-    <state width="1293" height="331" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284396" />
-    <state width="1293" height="331" key="GridCell.Tab.2.left" timestamp="1588201284396">
+    <state width="1293" height="492" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725813" />
+    <state width="1293" height="492" key="GridCell.Tab.2.left" timestamp="1588206725813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.2.left/0.0.1366.728@0.0.1366.728" timestamp="1588142223497" />
-    <state width="1293" height="331" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284396" />
-    <state width="1293" height="331" key="GridCell.Tab.2.right" timestamp="1588201284396">
+    <state width="1293" height="492" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725813" />
+    <state width="1293" height="492" key="GridCell.Tab.2.right" timestamp="1588206725813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="904" height="114" key="GridCell.Tab.2.right/0.0.1366.728@0.0.1366.728" timestamp="1588142223497" />
-    <state width="1293" height="331" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588201284396" />
+    <state width="1293" height="492" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588206725813" />
     <state x="229" y="0" key="SettingsEditor" timestamp="1588167732738">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -19,4 +19,10 @@ public class PermissionServiceImpl implements PermissionService {
         List<Permission> permissionList = permissionMapper.selectAll();
         return permissionList;
     }
+
+    @Override
+    public List<Permission> getCurrentPermissionByRid(Long rid) {
+        List<Permission> permissionList = permissionMapper.getCurrentPermissionByRid(rid);
+        return permissionList;
+    }
 }

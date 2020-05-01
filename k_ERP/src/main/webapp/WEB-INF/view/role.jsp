@@ -6,6 +6,7 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/plugins/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/plugins/easyui/jquery.easyui.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/plugins/easyui/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/base.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/role.js"></script>
     <title>Role Page</title>
 

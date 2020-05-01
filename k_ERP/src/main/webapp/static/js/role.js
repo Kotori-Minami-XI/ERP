@@ -28,10 +28,47 @@ $(function () {
         $('#permissionAll_list').datagrid('reload');
     });
 
+    // Edit role
+    $('#role_edit').click(function () {
+        // Step 1: Get selected row
+        var rowData = $("#role_datagrid").datagrid("getSelected");
+        // console.log(rowData);
+        if(!rowData){
+            $.messager.alert("提示","选择一行数据进行编辑");
+            return;
+        }
+
+        // Step 2: Open dialog and display current info
+        $('#role_dialog').dialog('open');
+        $('#role_dialog').dialog('setTitle', "编辑职能");
+
+        $("#roleForm").form('load', rowData);
+
+        // Step 3: clean data grid and reload list once again
+        $('#permissionAll_list').datagrid('reload');
+        $('#permissionSelected_list').datagrid('loadData',{rows:[]});
+
+        // Step 4: Obtain and display current selected permissions from database
+        $.get("/getCurrentPermissionByRid.action?rid=" + rowData.rid, function (data) {
+            var allRows = $('#permissionAll_list').datagrid('getRows');
+            console.log(allRows);
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                for (var j = 0; j < allRows.length; j++) {
+                    if (allRows[j].pid == data[i].pid) {
+                        $('#permissionAll_list').datagrid('selectRow', j);
+                        break;
+                    }
+                }
+            }
+        });
+    });
+
     // Role dialog
     $('#role_dialog').dialog({
         width: 600,
         height: 600,
+        closed: true,
         buttons:[{
             text:'保存',
             handler:function(){

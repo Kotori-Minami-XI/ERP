@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface PermissionService {
     List<Permission> getPermissionList();
+
+    List<Permission> getCurrentPermissionByRid(Long rid);
 }

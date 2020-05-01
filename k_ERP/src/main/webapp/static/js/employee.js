@@ -65,9 +65,6 @@ $(function () {
         rowData["department.id"] = rowData["department"].id;
         rowData["admin"] = rowData["admin"].toString();
 
-        // $.get("/getRoleByEid?id="+rowData.id,function (data) {
-        //     $("#role").combobox("setValues",data);
-        // });
         $("#employeeForm").form("load",rowData);
     });
 
@@ -98,7 +95,6 @@ $(function () {
     // delete button
     $("#delete").click(function () {
         var rowData = $("#datagrid").datagrid("getSelected");
-        console.log(rowData);
         if(!rowData){
             $.messager.alert("提示","选择一行数据进行编辑");
             return;
@@ -195,25 +191,6 @@ $(function () {
                             $.messager.alert("提示",data.msg);
                         }
                     }
-
-                    // onSubmit:function(param){
-                    //     var values =  $("#role").combobox("getValues");
-                    //     for(var i = 0; i < values.length; i++){
-                    //         var rid  =  values[i];
-                    //         param["roles["+i+"].rid"] = rid;
-                    //     }
-                    // },
-                    // success:function (data) {
-                    //     data = $.parseJSON(data);
-                    //     if (data.success){
-                    //         $.messager.alert("温馨提示",data.msg);
-                    //         $("#dialog").dialog("close");
-                    //         /* Reload data into datagrid */
-                    //         $("#dg").datagrid("reload");
-                    //     } else {
-                    //         $.messager.alert("温馨提示",data.msg);
-                    //     }
-                    // }
                 });
             }
         },{

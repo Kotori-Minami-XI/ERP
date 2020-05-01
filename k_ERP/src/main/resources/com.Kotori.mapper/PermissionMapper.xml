@@ -6,29 +6,38 @@
     <result column="pname" property="pname" jdbcType="VARCHAR" />
     <result column="presouce" property="presouce" jdbcType="VARCHAR" />
   </resultMap>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from permission
     where pid = #{pid,jdbcType=BIGINT}
   </delete>
+
   <insert id="insert" parameterType="com.Kotori.domain.Permission" >
     insert into permission (pid, pname, presouce
       )
     values (#{pid,jdbcType=BIGINT}, #{pname,jdbcType=VARCHAR}, #{presouce,jdbcType=VARCHAR}
       )
   </insert>
+
   <update id="updateByPrimaryKey" parameterType="com.Kotori.domain.Permission" >
     update permission
     set pname = #{pname,jdbcType=VARCHAR},
       presouce = #{presouce,jdbcType=VARCHAR}
     where pid = #{pid,jdbcType=BIGINT}
   </update>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select pid, pname, presouce
     from permission
     where pid = #{pid,jdbcType=BIGINT}
   </select>
+
   <select id="selectAll" resultMap="BaseResultMap" >
     select pid, pname, presouce
     from permission
+  </select>
+
+  <select id="getCurrentPermissionByRid" resultType="com.Kotori.domain.Permission">
+      select * from `permission` where pid in (select pid from `role_permission_rel` WHERE rid=#{rid})
   </select>
 </mapper>

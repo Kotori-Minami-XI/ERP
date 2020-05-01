@@ -33,7 +33,20 @@ public class RoleServiceImpl implements RoleService {
         roleMapper.insert(role);
 
         // Step 2: insert relation between role and permission
+        for (Permission permission : role.getPermissions()) {
+            roleMapper.insertRoleAndPermissionRel(role.getRid(), permission.getPid());
+        }
+    }
 
+    @Override
+    public void updateRole(Role role) {
+        // Step 1: Remove relation between role and permission
+        roleMapper.deletePermissionAndRoleRelByRid(role.getRid());
+
+        // Step 2: Update role table by rid
+        roleMapper.updateByPrimaryKey(role);
+
+        // Step 3: Reestablish relation between role and permission
         for (Permission permission : role.getPermissions()) {
             roleMapper.insertRoleAndPermissionRel(role.getRid(), permission.getPid());
         }

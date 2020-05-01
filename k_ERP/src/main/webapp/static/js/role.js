@@ -19,6 +19,7 @@ $(function () {
 
     // Add role
     $('#role_add').click(function () {
+        window.behavior = "role_add";
         $('#role_dialog').dialog('open');
         $('#role_dialog').dialog('setTitle', "添加职能");
 
@@ -30,6 +31,7 @@ $(function () {
 
     // Edit role
     $('#role_edit').click(function () {
+        window.behavior = "role_edit";
         // Step 1: Get selected row
         var rowData = $("#role_datagrid").datagrid("getSelected");
         // console.log(rowData);
@@ -51,8 +53,8 @@ $(function () {
         // Step 4: Obtain and display current selected permissions from database
         $.get("/getCurrentPermissionByRid.action?rid=" + rowData.rid, function (data) {
             var allRows = $('#permissionAll_list').datagrid('getRows');
-            console.log(allRows);
-            console.log(data);
+            // console.log(allRows);
+            // console.log(data);
             for (var i = 0; i < data.length; i++) {
                 for (var j = 0; j < allRows.length; j++) {
                     if (allRows[j].pid == data[i].pid) {
@@ -72,8 +74,17 @@ $(function () {
         buttons:[{
             text:'保存',
             handler:function(){
+                var url;
+                if (window.behavior == "role_add") {
+                    url = "/saveRole.action";
+                } else if (window.behavior == "role_edit") {
+                    url = "/updateRole.action";
+                } else {
+                    url = "/";
+                }
+
                 $('#roleForm').form("submit",{
-                    url:"/saveRole.action",
+                    url:url,
                     // Extra params when submitting the form
                     onSubmit: function (param) {
                         // Obtain and iterate all roles and set them in extra params

@@ -6,15 +6,17 @@
     <result column="rnum" property="rnum" jdbcType="VARCHAR" />
     <result column="rname" property="rname" jdbcType="VARCHAR" />
   </resultMap>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from role
-    where rid = #{rid,jdbcType=BIGINT}
+    delete from role where rid = #{rid,jdbcType=BIGINT}
   </delete>
+
+  <delete id="deletePermissionAndRoleRelByRid">
+    delete from role_permission_rel where rid = #{rid,jdbcType=BIGINT}
+  </delete>
+
   <insert id="insert" parameterType="com.Kotori.domain.Role" useGeneratedKeys="true" keyProperty="rid">
-    insert into role (rnum, rname
-      )
-    values (#{rnum,jdbcType=VARCHAR}, #{rname,jdbcType=VARCHAR}
-      )
+    insert into role (rnum, rname) values (#{rnum,jdbcType=VARCHAR}, #{rname,jdbcType=VARCHAR})
   </insert>
 
   <insert id="insertRoleAndPermissionRel">
@@ -22,18 +24,14 @@
   </insert>
 
   <update id="updateByPrimaryKey" parameterType="com.Kotori.domain.Role" >
-    update role
-    set rnum = #{rnum,jdbcType=VARCHAR},
-      rname = #{rname,jdbcType=VARCHAR}
-    where rid = #{rid,jdbcType=BIGINT}
+    update role set rnum = #{rnum,jdbcType=VARCHAR},rname = #{rname,jdbcType=VARCHAR} where rid = #{rid,jdbcType=BIGINT}
   </update>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select rid, rnum, rname
-    from role
-    where rid = #{rid,jdbcType=BIGINT}
+    select rid, rnum, rname from role where rid = #{rid,jdbcType=BIGINT}
   </select>
+
   <select id="selectAll" resultMap="BaseResultMap" >
-    select rid, rnum, rname
-    from role
+    select rid, rnum, rname from role
   </select>
 </mapper>

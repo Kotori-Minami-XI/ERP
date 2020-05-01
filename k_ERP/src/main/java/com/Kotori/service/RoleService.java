@@ -8,4 +8,6 @@ public interface RoleService {
     PageListResult getRoleList(QueryViewObject queryViewObject);
 
     void saveRole(Role role);
+
+    void updateRole(Role role);
 }

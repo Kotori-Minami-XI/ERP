@@ -19,4 +19,6 @@ public interface RoleMapper {
     int updateByPrimaryKey(Role record);
 
     void insertRoleAndPermissionRel(@Param("rid") Long rid, @Param("pid")Long pid);
+
+    void deletePermissionAndRoleRelByRid(Long rid);
 }

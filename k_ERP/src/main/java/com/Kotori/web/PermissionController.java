@@ -25,7 +25,6 @@ public class PermissionController {
     @ResponseBody
     public List<Permission> getCurrentPermissionByRid(Long rid) {
         List<Permission> permissionList = permissionService.getCurrentPermissionByRid(rid);
-        System.out.println(permissionList);
         return permissionList;
     }
 }

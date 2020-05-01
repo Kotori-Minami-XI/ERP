@@ -65,6 +65,13 @@ $(function () {
         rowData["department.id"] = rowData["department"].id;
         rowData["admin"] = rowData["admin"].toString();
 
+        /* Query database to retrieve rids for the employee since
+           role info is not included in rowData */
+        $.get("/getRidByEid.action?id=" + rowData.id, function (data) {
+            console.log(data);
+            $("#role").combobox("setValues", data);
+        });
+
         $("#employeeForm").form("load",rowData);
     });
 
@@ -125,7 +132,7 @@ $(function () {
         valueField:'id',
         onLoadSuccess:function () {
             /* Callback function to reload placeholder*/
-            $("#department").each(function(i){
+            $("#role").each(function(i){
                 var span = $(this).siblings("span")[i];
                 var targetInput = $(span).find("input:first");
                 if(targetInput){
@@ -154,7 +161,27 @@ $(function () {
                 }
             });
         }
+    });
 
+    /* Role combobox */
+    $("#role").combobox({
+        width:160,
+        multiple: true,
+        panelHeight:'auto',
+        textField:'rname',
+        valueField:'rid',
+        editable:false,
+        url:'/getRoleList.action',
+        onLoadSuccess:function () {
+            /* Callback function to reload placeholder*/
+            $("#Role").each(function(i){
+                var span = $(this).siblings("span")[i];
+                var targetInput = $(span).find("input:first");
+                if(targetInput){
+                    $(targetInput).attr("placeholder", $(this).attr("placeholder"));
+                }
+            });
+        }
     });
 
     /* Dialog */
@@ -181,6 +208,15 @@ $(function () {
                 /* Submit form */
                 $("#employeeForm").form("submit",{
                     url: url,
+                    onSubmit: function(param) {
+                        // Get all selected roles
+                        var values = $('#role').combobox('getValues');
+                        // Transfer extra data (roles for the employee)
+                        for (var i = 0; i< values.length; i++) {
+                            var rid = values[i];
+                            param["roles[" + i + "].rid"] = rid;
+                        }
+                    },
                     success:function (data) {
                         data = $.parseJSON(data);
                         if (data.result) {

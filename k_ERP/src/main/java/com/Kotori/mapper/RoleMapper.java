@@ -21,4 +21,6 @@ public interface RoleMapper {
     void insertRoleAndPermissionRel(@Param("rid") Long rid, @Param("pid")Long pid);
 
     void deletePermissionAndRoleRelByRid(Long rid);
+
+    List<Long> getRidByEid(Long id);
 }

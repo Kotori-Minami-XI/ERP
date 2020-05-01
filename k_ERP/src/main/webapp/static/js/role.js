@@ -1,7 +1,7 @@
 $(function () {
     // Role data grid
     $('#role_datagrid').datagrid({
-        url:"/getRoleList.action",
+        url:"/getRolePage.action",
         columns:[[
             {field:'rnum',title:'职能编号',width:100,align:'center'},
             {field:'rname',title:'职能名称',width:100,align:'center'}
@@ -66,11 +66,36 @@ $(function () {
         });
     });
 
+    // Delete role
+    $('#role_delete').click(function () {
+        var rowData = $("#role_datagrid").datagrid("getSelected");
+        // console.log(rowData);
+        if(!rowData){
+            $.messager.alert("提示","选择一行数据进行编辑");
+            return;
+        }
+
+        $.messager.confirm("确认", "确定删除职能吗",function (choice) {
+            if (choice == true) {
+                $.get("/deleteRole.action?rid=" + rowData.rid, function (data) {
+                    if (data.result) {
+                        $.messager.alert("提示",data.msg);
+                        $("#role_datagrid").datagrid("reload");
+                    } else {
+                        $.messager.alert("提示",data.msg);
+                    }
+                });
+            }
+        });
+    });
+
     // Role dialog
     $('#role_dialog').dialog({
         width: 600,
         height: 600,
         closed: true,
+        modal: true,
+        draggable: false,
         buttons:[{
             text:'保存',
             handler:function(){

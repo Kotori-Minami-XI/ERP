@@ -1,6 +1,8 @@
 package com.Kotori.mapper;
 
 import com.Kotori.domain.Employee;
+import org.apache.ibatis.annotations.Param;
+
 import java.util.List;
 
 public interface EmployeeMapper {
@@ -17,4 +19,8 @@ public interface EmployeeMapper {
     void updateStateById(Long id);
 
     List<Employee> vagueQueryEmployee(String keyword);
+
+    void insertEmployeeAndRoleRel(@Param("eid") Long eid, @Param("rid") Long rid);
+
+    void deleteEmployeeAndRoleRel(Long eid);
 }

@@ -59,6 +59,10 @@
                 <td>是否管理员:</td>
                 <td><input id="state" name="admin" placeholder="请选择是否为管理员"></input></td>
             </tr>
+            <tr>
+                <td>选择职能:</td>
+                <td><input id="role" name="role.rid" placeholder="请选择选择员工职能"></input></td>
+            </tr>
         </table>
 
     </form>

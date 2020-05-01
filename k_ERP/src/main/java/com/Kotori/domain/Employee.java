@@ -3,7 +3,9 @@ package com.Kotori.domain;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Employee {
     private Long id;
@@ -25,6 +27,8 @@ public class Employee {
     private Boolean admin;
 
     private Department department;
+
+    private List<Role> roles = new ArrayList();
 
     public Long getId() {
         return id;
@@ -98,6 +102,14 @@ public class Employee {
         this.department = department;
     }
 
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -110,6 +122,7 @@ public class Employee {
                 ", state=" + state +
                 ", admin=" + admin +
                 ", department=" + department +
+                ", roles=" + roles +
                 '}';
     }
 }

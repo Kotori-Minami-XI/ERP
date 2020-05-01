@@ -17,7 +17,7 @@ public class RoleServiceImpl implements RoleService {
     private RoleMapper roleMapper;
 
     @Override
-    public PageListResult getRoleList(QueryViewObject queryViewObject) {
+    public PageListResult getRolePage(QueryViewObject queryViewObject) {
         Page<Object> page = PageHelper.startPage(queryViewObject.getPage(), queryViewObject.getRows());
         List<Role> roleList = roleMapper.selectAll();
 
@@ -50,5 +50,21 @@ public class RoleServiceImpl implements RoleService {
         for (Permission permission : role.getPermissions()) {
             roleMapper.insertRoleAndPermissionRel(role.getRid(), permission.getPid());
         }
+    }
+
+    @Override
+    public void deleteRoleByRid(Long rid) {
+        roleMapper.deletePermissionAndRoleRelByRid(rid);
+        roleMapper.deleteByPrimaryKey(rid);
+    }
+
+    @Override
+    public List<Role> getRoleList() {
+        return roleMapper.selectAll();
+    }
+
+    @Override
+    public List<Long> getRidByEid(Long id) {
+        return roleMapper.getRidByEid(id);
     }
 }

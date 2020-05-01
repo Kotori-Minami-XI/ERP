@@ -3,6 +3,7 @@ package com.Kotori.service;
 import com.Kotori.domain.Employee;
 import com.Kotori.domain.PageListResult;
 import com.Kotori.domain.QueryViewObject;
+import com.Kotori.domain.Role;
 import com.Kotori.mapper.EmployeeMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -31,12 +32,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void saveEmployee(Employee employee) {
+        // Insert the new employee and have its id stored in employee
         employeeMapper.insert(employee);
+
+        // Insert relation between employee and role
+        for (Role role : employee.getRoles()) {
+            employeeMapper.insertEmployeeAndRoleRel(employee.getId(), role.getRid());
+        }
     }
 
     @Override
     public void updateEmployee(Employee employee) {
         employeeMapper.updateByPrimaryKey(employee);
+
+        employeeMapper.deleteEmployeeAndRoleRel(employee.getId());
+
+        for (Role role : employee.getRoles()) {
+            employeeMapper.insertEmployeeAndRoleRel(employee.getId(), role.getRid());
+        }
     }
 
     @Override

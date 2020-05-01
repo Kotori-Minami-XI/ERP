@@ -20,6 +20,15 @@ $(function () {
                         return row.admin ? "是" : "否";
             }}
         ]],
+        onClickRow: function(rowIndex, rowData){
+            // Check the state for the current selected row
+            // If state=false then disable delete button
+            if (!rowData.state) {
+                $('#delete').linkbutton("disable");
+            } else {
+                $('#delete').linkbutton("enable");
+            }
+        },
         singleSelect: true,
         fit:true,
         fitColumns:true,

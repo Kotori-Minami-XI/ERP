@@ -3,9 +3,10 @@ package com.Kotori.service;
 
 import com.Kotori.domain.Employee;
 import com.Kotori.domain.PageListResult;
+import com.Kotori.domain.QueryViewObject;
 
 public interface EmployeeService {
-    public PageListResult getEmployeeList();
+    public PageListResult getEmployeeList(QueryViewObject queryViewObject);
 
     void saveEmployee(Employee employee);
 

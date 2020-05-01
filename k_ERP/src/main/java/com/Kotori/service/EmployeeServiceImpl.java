@@ -2,6 +2,7 @@ package com.Kotori.service;
 
 import com.Kotori.domain.Employee;
 import com.Kotori.domain.PageListResult;
+import com.Kotori.domain.QueryViewObject;
 import com.Kotori.mapper.EmployeeMapper;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -18,8 +19,8 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeMapper employeeMapper;
 
     @Override
-    public PageListResult getEmployeeList() {
-        Page<Object> page = PageHelper.startPage(1, 5);
+    public PageListResult getEmployeeList(QueryViewObject queryViewObject) {
+        Page<Object> page = PageHelper.startPage(queryViewObject.getPage(), queryViewObject.getRows());
         List<Employee> employeeList = employeeMapper.selectAll();
 
         PageListResult pageListResult = new PageListResult();

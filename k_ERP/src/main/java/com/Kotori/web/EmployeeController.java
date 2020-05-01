@@ -3,6 +3,7 @@ package com.Kotori.web;
 import com.Kotori.domain.AjaxResult;
 import com.Kotori.domain.Employee;
 import com.Kotori.domain.PageListResult;
+import com.Kotori.domain.QueryViewObject;
 import com.Kotori.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,8 +32,8 @@ public class EmployeeController {
      */
     @RequestMapping("/getEmployeeList.action")
     @ResponseBody
-    public PageListResult getEmployeeList() {
-        PageListResult page = employeeService.getEmployeeList();
+    public PageListResult getEmployeeList(QueryViewObject queryViewObject) {
+        PageListResult page = employeeService.getEmployeeList(queryViewObject);
         return page;
     }
 

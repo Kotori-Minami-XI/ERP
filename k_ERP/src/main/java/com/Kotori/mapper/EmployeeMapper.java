@@ -15,4 +15,6 @@ public interface EmployeeMapper {
     int updateByPrimaryKey(Employee record);
 
     void updateStateById(Long id);
+
+    List<Employee> vagueQueryEmployee(String keyword);
 }

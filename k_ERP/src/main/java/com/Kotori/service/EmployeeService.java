@@ -13,4 +13,6 @@ public interface EmployeeService {
     void updateEmployee(Employee employee);
 
     void updateState(Long id);
+
+    PageListResult vagueQueryEmployee(QueryViewObject queryViewObject);
 }

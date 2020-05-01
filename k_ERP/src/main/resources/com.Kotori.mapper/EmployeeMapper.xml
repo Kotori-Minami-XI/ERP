@@ -53,4 +53,8 @@
     from employee AS e LEFT JOIN department AS d ON e.dept_no = d.id
   </select>
 
+  <select id="vagueQueryEmployee" parameterType="String" resultType="com.Kotori.domain.Employee">
+    select * from employee where username like '%${value}%'
+  </select>
+
 </mapper>

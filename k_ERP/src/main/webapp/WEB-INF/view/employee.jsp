@@ -16,7 +16,9 @@
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" id="add">添加</a>
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true" id="edit">编辑</a>
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" id="delete">离职</a>
-    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" id="reload">刷新</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" id="refresh">刷新</a>
+    <input type="text" id="keyword" style="width:200px; height:30px; padding-left: 5px">
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" id="search">搜索员工</a>
 </div>
 
 <%-- Datagrid --%>

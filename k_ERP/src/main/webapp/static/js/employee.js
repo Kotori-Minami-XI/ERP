@@ -9,7 +9,7 @@ $(function () {
             {field:'tel',title:'电话',width:100,align:'center'},
             {field:'email',title:'邮箱',width:100,align:'center'},
             {field:'department',title:'部门',width:100,align:'center', formatter: function (value,row,index) {
-                if (value.name) {
+                if (value) {
                     return value.name;
                 }
             }},
@@ -69,6 +69,30 @@ $(function () {
         //     $("#role").combobox("setValues",data);
         // });
         $("#employeeForm").form("load",rowData);
+    });
+
+    // search button
+    $("#search").click(function () {
+        var keyword = $('#keyword').val();
+        $("#datagrid").datagrid("load",{keyword:keyword});
+        $("#datagrid").datagrid({
+            url:"/vagueQueryEmployee.action",
+            success: function(data){
+                // Load new data
+                $("#datagrid").datagrid("loadData",data);
+            }
+        });
+    });
+
+    // refresh button
+    $('#refresh').click(function () {
+        $("#keyword").val("");
+        $('#datagrid').datagrid({
+            url:"/getEmployeeList.action",
+            success:function(data) {
+                $("#datagrid").datagrid("loadData",data);
+            }
+        });
     });
 
     // delete button

@@ -17,7 +17,7 @@ public class EmployeeController {
 
     /***
      * @brief  Head to employee.jsp
-     * @param  null
+     * @params null
      * @return View location of employee.jsp
      */
     @RequestMapping("/employee.action")
@@ -27,7 +27,7 @@ public class EmployeeController {
 
     /***
      * @brief  Obtain all employees in database
-     * @param  null
+     * @params null
      * @return Divide all results into pages and return one page
      */
     @RequestMapping("/getEmployeeList.action")
@@ -37,6 +37,11 @@ public class EmployeeController {
         return page;
     }
 
+    /***
+     * @brief  Add a new employee to database
+     * @params employee
+     * @return Callback info for inserting the new employee
+     */
     @RequestMapping("/saveEmployee.action")
     @ResponseBody
     public AjaxResult saveEmployee(Employee employee) {
@@ -55,6 +60,11 @@ public class EmployeeController {
         return ajaxResult;
     }
 
+    /***
+     * @brief  Update employee info
+     * @params employee
+     * @return Callback info for Updating the employee
+     */
     @RequestMapping("/updateEmployee.action")
     @ResponseBody
     public AjaxResult updateEmployee(Employee employee) {
@@ -71,6 +81,11 @@ public class EmployeeController {
         return ajaxResult;
     }
 
+    /***
+     * @brief  Switch employee state
+     * @params id
+     * @return Callback info for Updating the state
+     */
     @RequestMapping("/updateState.action")
     @ResponseBody
     public AjaxResult updateState(Long id) {
@@ -85,5 +100,18 @@ public class EmployeeController {
             ajaxResult.setResult(false);
         }
         return ajaxResult;
+    }
+
+    /***
+     * @brief  vague query to retrieve employees whose names are similar to keyword
+     * @params queryViewObject
+     * @return List of employees meet the requirement
+     */
+    @RequestMapping("/vagueQueryEmployee.action")
+    @ResponseBody
+    public PageListResult vagueQueryEmployee(QueryViewObject queryViewObject) {
+        System.out.println(queryViewObject);
+        PageListResult page = employeeService.vagueQueryEmployee(queryViewObject);
+        return page;
     }
 }

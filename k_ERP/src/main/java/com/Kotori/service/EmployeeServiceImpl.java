@@ -43,4 +43,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     public void updateState(Long id) {
         employeeMapper.updateStateById(id);
     }
+
+    @Override
+    public PageListResult vagueQueryEmployee(QueryViewObject queryViewObject) {
+        Page<Object> page = PageHelper.startPage(queryViewObject.getPage(), queryViewObject.getRows());
+        List<Employee> employeeList = employeeMapper.vagueQueryEmployee(queryViewObject.getKeyword());
+
+        PageListResult pageListResult = new PageListResult();
+        pageListResult.setTotal(page.getTotal());
+        pageListResult.setRows(employeeList);
+
+        System.out.println(employeeList);
+        return pageListResult;
+    }
 }

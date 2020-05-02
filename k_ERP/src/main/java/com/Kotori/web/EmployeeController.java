@@ -8,6 +8,7 @@ import com.Kotori.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.HandlerMethod;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
@@ -53,12 +53,18 @@ public class EmployeeController {
      * @return Callback info for inserting the new employee
      */
     @RequestMapping("/saveEmployee.action")
+    @RequiresPermissions("employee:add")
     @ResponseBody
     public AjaxResult saveEmployee(Employee employee) {
         AjaxResult ajaxResult = new AjaxResult();
         try {
             // Always on duty when adding a new employee
             employee.setState(true);
+
+            // Encrypt password by md5. Salt is username.
+            Md5Hash md5Hash = new Md5Hash(employee.getPassword(), employee.getUsername(), 2);
+            employee.setPassword(md5Hash.toString());
+
             employeeService.saveEmployee(employee);
             ajaxResult.setMsg("保存成功");
             ajaxResult.setResult(true);
@@ -76,6 +82,7 @@ public class EmployeeController {
      * @return Callback info for Updating the employee
      */
     @RequestMapping("/updateEmployee.action")
+    @RequiresPermissions("employee:edit")
     @ResponseBody
     public AjaxResult updateEmployee(Employee employee) {
         AjaxResult ajaxResult = new AjaxResult();
@@ -97,6 +104,7 @@ public class EmployeeController {
      * @return Callback info for Updating the state
      */
     @RequestMapping("/updateState.action")
+    @RequiresPermissions("employee:delete")
     @ResponseBody
     public AjaxResult updateState(Long id) {
         AjaxResult ajaxResult = new AjaxResult();

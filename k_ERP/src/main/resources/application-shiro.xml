@@ -30,7 +30,7 @@
             <value>
                 /static/** = anon     <!-- No need to authenticate static resource -->
                 /login.jsp = anon     <!-- No need to authenticate login page. Default page for Shiro -->
-                /logout = logout <!-- No need to authenticate logout -->
+                /logout = logout      <!-- No need to authenticate logout -->
                 /**=authc             <!-- All requests must be authenticated -->
             </value>
         </property>

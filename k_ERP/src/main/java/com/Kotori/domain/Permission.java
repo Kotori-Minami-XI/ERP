@@ -5,7 +5,7 @@ public class Permission {
 
     private String pname;
 
-    private String presouce;
+    private String presource;
 
     public Long getPid() {
         return pid;
@@ -24,11 +24,11 @@ public class Permission {
     }
 
     public String getPresouce() {
-        return presouce;
+        return presource;
     }
 
     public void setPresouce(String presouce) {
-        this.presouce = presouce == null ? null : presouce.trim();
+        this.presource = presouce == null ? null : presouce.trim();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class Permission {
         return "Permission{" +
                 "pid=" + pid +
                 ", pname='" + pname + '\'' +
-                ", presouce='" + presouce + '\'' +
+                ", presouce='" + presource + '\'' +
                 '}';
     }
 }

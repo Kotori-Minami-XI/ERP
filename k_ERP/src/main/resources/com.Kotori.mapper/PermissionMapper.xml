@@ -4,36 +4,32 @@
   <resultMap id="BaseResultMap" type="com.Kotori.domain.Permission" >
     <id column="pid" property="pid" jdbcType="BIGINT" />
     <result column="pname" property="pname" jdbcType="VARCHAR" />
-    <result column="presouce" property="presouce" jdbcType="VARCHAR" />
+    <result column="presource" property="presource" jdbcType="VARCHAR" />
   </resultMap>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from permission
-    where pid = #{pid,jdbcType=BIGINT}
+    delete from permission where pid = #{pid,jdbcType=BIGINT}
   </delete>
 
   <insert id="insert" parameterType="com.Kotori.domain.Permission" >
-    insert into permission (pid, pname, presouce
-      )
-    values (#{pid,jdbcType=BIGINT}, #{pname,jdbcType=VARCHAR}, #{presouce,jdbcType=VARCHAR}
-      )
+    insert into permission (pid, pname, presource)
+    values (#{pid,jdbcType=BIGINT}, #{pname,jdbcType=VARCHAR}, #{presource,jdbcType=VARCHAR})
   </insert>
 
   <update id="updateByPrimaryKey" parameterType="com.Kotori.domain.Permission" >
     update permission
-    set pname = #{pname,jdbcType=VARCHAR},
-      presouce = #{presouce,jdbcType=VARCHAR}
+    set pname = #{pname,jdbcType=VARCHAR}, presource = #{presource,jdbcType=VARCHAR}
     where pid = #{pid,jdbcType=BIGINT}
   </update>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select pid, pname, presouce
+    select pid, pname, presource
     from permission
     where pid = #{pid,jdbcType=BIGINT}
   </select>
 
   <select id="selectAll" resultMap="BaseResultMap" >
-    select pid, pname, presouce
+    select pid, pname, presource
     from permission
   </select>
 

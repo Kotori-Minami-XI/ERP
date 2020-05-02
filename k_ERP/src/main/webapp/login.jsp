@@ -3,11 +3,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>用户权限管理系统</title>
+    <title>企业用户管理系统</title>
     <link href="./static/css/base.css" rel="stylesheet">
     <link href="./static/css/login.css" rel="stylesheet">
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/plugins/easyui/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#loginBtn").click(function () {
+                var formData = $('#userForm').serialize();
+                $.post(
+                    "/login.action",
+                    formData,
+                    function (data) {
+                        // Convert json string into json data
+                        data = $.parseJSON(data);
+                        if (data.result) {
+                            window.location.href = "${pageContext.request.contextPath}/index.jsp";
+                        } else {
+                            alert(data.msg);
+                        }
+                    });
+            });
 
+
+        })
+    </script>
 </head>
 <body class="white">
 <div class="login-hd">
@@ -16,7 +36,7 @@
     <div class="hd-inner">
         <span class="logo"></span>
         <span class="split"></span>
-        <span class="sys-name">用户权限管理系统</span>
+        <span class="sys-name">企业用户管理系统</span>
     </div>
 </div>
 <div class="login-bd">
@@ -26,10 +46,10 @@
                 <div class="lg-box">
                     <div class="lg-label"><h4>用户登录</h4></div>
 
-                    <form>
+                    <form id="userForm">
                         <div class="lg-username input-item clearfix">
                             <i class="iconfont"></i>
-                            <input type="text" value="itlike" name="username" placeholder="请用户名">
+                            <input type="text" value="Kotori" name="username" placeholder="请用户名">
                         </div>
                         <div class="lg-password input-item clearfix">
                             <i class="iconfont"></i>
@@ -52,13 +72,13 @@
 <div class="login-ft">
     <div class="ft-inner">
         <div class="about-us">
-            <a href="javascript:;">关于我们</a>
-            <a href="http://www.itlike.com/">撩课学院</a>
-            <a href="javascript:;">服务条款</a>
-            <a href="javascript:;">联系方式</a>
+            <a href="#">关于我们</a>
+            <a href="#">Kotori学院</a>
+            <a href="#">服务条款</a>
+            <a href="#">联系方式</a>
         </div>
-        <div class="address"> 课程内容版权均归 撩课教育 所有 &nbsp;编号：210019&nbsp;&nbsp;Copyright&nbsp;©&nbsp;2019&nbsp;-&nbsp;2020&nbsp;撩课&nbsp;版权所有</div>
-        <div class="other-info">建议使用IE8及以上版本浏览器&nbsp;沪ICP备&nbsp;18036896号&nbsp;E-mail：itlike@126.com</div>
+        <div class="address"> 内容版权均归Kotori 版权所有</div>
+        <div class="other-info">建议使用IE8及以上版本浏览器&nbsp;沪ICP备&nbsp;XXXXXXXXX号&nbsp;E-mail：XXXXXXXX@qq.com</div>
     </div>
 </div>
 

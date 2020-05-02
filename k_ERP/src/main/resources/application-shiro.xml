@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- Shiro filter -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- Login authentication path (essential) -->
+        <property name="loginUrl" value="/login.action"></property>
+
+        <property name="filters">
+            <map>
+                <entry key="authc" value-ref="loginFormFilter"></entry>
+            </map>
+        </property>
+
+        <property name="securityManager" ref="securityManager"></property>
+        <!-- Filter pattern -->
+        <property name="filterChainDefinitions">
+            <value>
+                /static/** = anon     <!-- No need to authenticate static resource -->
+                /login.jsp = anon     <!-- No need to authenticate login page. Default page for Shiro -->
+                /logout = logout <!-- No need to authenticate logout -->
+                /**=authc             <!-- All requests must be authenticated -->
+            </value>
+        </property>
+    </bean>
+
+    <!-- Shiro Listener to authentication results -->
+    <bean id="loginFormFilter" class="com.Kotori.web.Filter.LoginFormFilter"></bean>
+
+    <!-- Shiro realm -->
+    <bean id="employeeRealm" class="com.Kotori.web.realm.EmployeeRealm"></bean>
+
+    <!-- Shiro security manager -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="employeeRealm"></property>
+    </bean>
+
+    <!-- Shiro Scanner -->
+    <!-- Cglib : true , JDK : false -->
+    <aop:config proxy-target-class="true" ></aop:config>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor ">
+        <property name="securityManager" ref="securityManager"></property>
+    </bean>
+
+</beans>

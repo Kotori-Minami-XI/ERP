@@ -51,8 +51,7 @@
   </update>
 
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
-    select id, username, inputtime, tel, email, state, admin, dept_no
-    from employee
+    select id, username, inputtime, tel, email, state, admin, dept_no from employee
     where id = #{id,jdbcType=BIGINT}
   </select>
 
@@ -63,6 +62,23 @@
 
   <select id="vagueQueryEmployee" parameterType="String" resultType="com.Kotori.domain.Employee">
     select * from employee where username like '%${value}%'
+  </select>
+
+  <select id="getEmployeeByUsername" resultType="com.Kotori.domain.Employee">
+    select * from employee where username = #{username}
+  </select>
+
+  <select id="getRolesById" resultType="java.lang.String">
+    select r.rnum from employee_role_rel as rel
+    left join role as r
+    on rel.rid = r.rid
+    where eid = #{id}
+  </select>
+
+  <select id="getPermissionsById" resultType="java.lang.String">
+    select distinct p.presource from role_permission_rel as rel
+    left join permission as p on rel.pid = p.pid
+    where rid in (select rid from employee_role_rel where eid=#{id})
   </select>
 
 </mapper>

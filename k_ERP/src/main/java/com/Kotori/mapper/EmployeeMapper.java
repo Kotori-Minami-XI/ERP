@@ -23,4 +23,10 @@ public interface EmployeeMapper {
     void insertEmployeeAndRoleRel(@Param("eid") Long eid, @Param("rid") Long rid);
 
     void deleteEmployeeAndRoleRel(Long eid);
+
+    Employee getEmployeeByUsername(String username);
+
+    List<String> getRolesById(Long id);
+
+    List<String> getPermissionsById(Long id);
 }

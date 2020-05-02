@@ -69,4 +69,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println(employeeList);
         return pageListResult;
     }
+
+    @Override
+    public Employee getEmployeeByUsername(String username) {
+        return employeeMapper.getEmployeeByUsername(username);
+    }
+
+    @Override
+    public List<String> getRolesById(Long id) {
+        return employeeMapper.getRolesById(id);
+    }
+
+    @Override
+    public List<String> getPermissionsById(Long id) {
+        return employeeMapper.getPermissionsById(id);
+    }
 }

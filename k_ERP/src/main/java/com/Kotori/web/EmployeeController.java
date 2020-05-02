@@ -5,10 +5,19 @@ import com.Kotori.domain.Employee;
 import com.Kotori.domain.PageListResult;
 import com.Kotori.domain.QueryViewObject;
 import com.Kotori.service.EmployeeService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.shiro.authz.AuthorizationException;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.method.HandlerMethod;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 public class EmployeeController {
@@ -21,6 +30,7 @@ public class EmployeeController {
      * @return View location of employee.jsp
      */
     @RequestMapping("/employee.action")
+    @RequiresPermissions("employee:index")
     public String employee() {
         return "/WEB-INF/view/employee.jsp";
     }
@@ -113,5 +123,27 @@ public class EmployeeController {
         System.out.println(queryViewObject);
         PageListResult page = employeeService.vagueQueryEmployee(queryViewObject);
         return page;
+    }
+
+    /***
+     *
+     * @brief  Handle shiro exception that the current subject has no permission to visit resource.
+     *         A json or an http response will be returned
+     * @params handlerMethod response
+     * @throws IOException
+     */
+    @ExceptionHandler (AuthorizationException.class)
+    public void handleShiroException(HandlerMethod handlerMethod, HttpServletResponse response) throws IOException {
+        ResponseBody methodAnnotation = handlerMethod.getMethodAnnotation(ResponseBody.class);
+        if (null != methodAnnotation) {
+            AjaxResult ajaxResult = new AjaxResult();
+            ajaxResult.setMsg("没有权限访问");
+            ajaxResult.setResult(false);
+            String jsonString = new ObjectMapper().writeValueAsString(ajaxResult);
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().print(jsonString);
+        } else {
+            response.sendRedirect("illegalAccess.jsp");
+        }
     }
 }

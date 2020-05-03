@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 @Controller
 public class MenuController {
@@ -80,12 +79,11 @@ public class MenuController {
         // Get subject
         Subject subject = SecurityUtils.getSubject();
         Employee employee = (Employee) subject.getPrincipal();
-        
+
         // Check authorization and remove unauthorized items by regression
         if (!employee.getAdmin()) {
             checkPermission(menuTree);
         }
-
         return menuTree;
     }
 

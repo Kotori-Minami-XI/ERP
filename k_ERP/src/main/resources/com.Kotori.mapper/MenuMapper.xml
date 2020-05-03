@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.Kotori.mapper.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.Kotori.domain.Menu" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <association property="parent" javaType="com.Kotori.domain.Menu" columnPrefix="m2_">
+      <result column="id" property="id"></result>
+      <result column="text" property="text"></result>
+      <result column="url" property="url"></result>
+    </association>
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from menu where id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <delete id="deleteParentMenuRelById" parameterType="java.lang.Long">
+    Update menu set parent_id=null where parent_id = #{id}
+  </delete>
+
+  <insert id="insert" parameterType="com.Kotori.domain.Menu" >
+    insert into menu (id, text, url, parent_id)
+    values (#{id,jdbcType=BIGINT}, #{text,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{parent.id,jdbcType=BIGINT})
+  </insert>
+
+  <update id="updateByPrimaryKey" parameterType="com.Kotori.domain.Menu" >
+    update menu
+    set text = #{text,jdbcType=VARCHAR}, url = #{url,jdbcType=VARCHAR}, parent_id = #{parent.id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select id, text, url, parent_id from menu
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select
+    m1.id, m1.text, m1.url,
+    m2.id as m2_id,
+    m2.text as m2_text,
+    m2.url as m2_url
+    from `menu` as m1 left join `menu` as m2 on m1.parent_id = m2.id
+  </select>
+
+  <select id="getParentIdById" resultType="java.lang.Long">
+    select parent_id from menu where id= #{id}
+  </select>
+
+</mapper>

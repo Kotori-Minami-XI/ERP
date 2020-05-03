@@ -103,7 +103,7 @@ $(function () {
     $("#delete").click(function () {
         var rowData = $("#datagrid").datagrid("getSelected");
         if(!rowData){
-            $.messager.alert("提示","选择一行数据进行编辑");
+            $.messager.alert("提示","选择一行数据进行删除");
             return;
         }
         $.messager.confirm("确认", "确定离职吗",function (choice) {

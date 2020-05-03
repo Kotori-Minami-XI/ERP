@@ -1,16 +1,17 @@
 package com.Kotori.web;
 
-import com.Kotori.domain.AjaxResult;
-import com.Kotori.domain.Menu;
-import com.Kotori.domain.PageListResult;
-import com.Kotori.domain.QueryViewObject;
+import com.Kotori.domain.*;
 import com.Kotori.service.MenuService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 @Controller
 public class MenuController {
@@ -70,5 +71,44 @@ public class MenuController {
         }
         return ajaxResult;
     }
+
+    @RequestMapping("/getMenuTree.action")
+    @ResponseBody
+    public List<Menu> getMenuTree() {
+        List<Menu> menuTree = menuService.getMenuTree();
+
+        // Get subject
+        Subject subject = SecurityUtils.getSubject();
+        Employee employee = (Employee) subject.getPrincipal();
+        
+        // Check authorization and remove unauthorized items by regression
+        if (!employee.getAdmin()) {
+            checkPermission(menuTree);
+        }
+
+        return menuTree;
+    }
+
+    private void checkPermission(List<Menu> menuTree) {
+        Subject subject = SecurityUtils.getSubject();
+        // Remove menus that are not authorized for the current subject
+        Iterator<Menu> iterator = menuTree.iterator();
+
+        while (iterator.hasNext()) {
+            Menu menu = iterator.next();
+            if (null != menu.getPermission()) {
+                String presource = menu.getPermission().getPresouce();
+                if (!subject.isPermitted(presource)) {
+                    iterator.remove();
+                    continue;
+                }
+            }
+            // Regression to check all child menus
+            if (menu.getChildren().size() > 0) {
+                checkPermission(menu.getChildren());
+            }
+        }
+    }
+
 
 }

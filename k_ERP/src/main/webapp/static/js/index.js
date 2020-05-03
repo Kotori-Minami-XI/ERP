@@ -4,7 +4,7 @@ $(function () {
     });
 
     $('#tree').tree({
-        url:'/static/tree.json',
+        url:'/getMenuTree.action',
         lines:true,
         onSelect: function(node){
             var exists =   $("#tabs").tabs("exists",node.text);

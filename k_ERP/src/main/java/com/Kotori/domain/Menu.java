@@ -1,5 +1,8 @@
 package com.Kotori.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Menu {
     private Long id;
 
@@ -8,6 +11,10 @@ public class Menu {
     private String url;
 
     private Menu parent;
+
+    private Permission permission;
+
+    private List<Menu> children = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -41,6 +48,22 @@ public class Menu {
         this.parent = parent;
     }
 
+    public List<Menu> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Menu> children) {
+        this.children = children;
+    }
+
+    public Permission getPermission() {
+        return permission;
+    }
+
+    public void setPermission(Permission permission) {
+        this.permission = permission;
+    }
+
     @Override
     public String toString() {
         return "Menu{" +
@@ -48,6 +71,8 @@ public class Menu {
                 ", text='" + text + '\'' +
                 ", url='" + url + '\'' +
                 ", parent=" + parent +
+                ", permission=" + permission +
+                ", children=" + children +
                 '}';
     }
 }

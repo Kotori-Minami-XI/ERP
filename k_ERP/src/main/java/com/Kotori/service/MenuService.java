@@ -17,4 +17,6 @@ public interface MenuService {
     AjaxResult updateMenu(Menu menu);
 
     void deleteMenuById(Long id);
+
+    List<Menu> getMenuTree();
 }

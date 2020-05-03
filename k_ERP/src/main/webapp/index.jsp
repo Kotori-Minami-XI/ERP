@@ -18,9 +18,8 @@
 
     <div style="position: absolute; right: 50px; top: 30px;">
         <img src="./static/images/user.png" style="vertical-align: middle; margin-right: 10px;" >
-        <%--显示当前登录用户名--%>
         <span style="color: white; font-size: 20px; margin-right: 5px;"><shiro:principal property="username" /> </span>
-        <%--取消认证  跳转到 登录页面  在shiro配置文件当中  配置   /logout = logout --%>
+        <%-- /logout = logout in shiro configuration --%>
         <a style="font-size: 18px; color: white;text-decoration: none;" href="${pageContext.request.contextPath}/logout">注销</a>
     </div>
 </div>

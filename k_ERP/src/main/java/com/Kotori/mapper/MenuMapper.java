@@ -17,4 +17,8 @@ public interface MenuMapper {
     Long getParentIdById(Long id);
 
     void deleteParentMenuRelById(Long id);
+
+    List<Menu> getMenuTree();
+
+    void listChildMenu(Long id);
 }

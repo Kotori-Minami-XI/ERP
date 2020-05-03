@@ -72,4 +72,9 @@ public class MenuServiceImpl implements MenuService {
 
         menuMapper.deleteByPrimaryKey(id);
     }
+
+    @Override
+    public List<Menu> getMenuTree() {
+        return menuMapper.getMenuTree();
+    }
 }

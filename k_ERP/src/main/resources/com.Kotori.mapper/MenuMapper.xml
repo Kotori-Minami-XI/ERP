@@ -10,7 +10,31 @@
       <result column="text" property="text"></result>
       <result column="url" property="url"></result>
     </association>
+
+    <association property="permission" javaType="com.Kotori.domain.Permission">
+      <result column="pid" property="pid"></result>
+      <result column="pname" property="pname"></result>
+      <result column="presource" property="presource"></result>
+    </association>
+
+    <collection property="children" ofType="com.Kotori.domain.Menu" select="listChildMenu" column="id"></collection>
   </resultMap>
+
+  <select id="getMenuTree" resultMap="BaseResultMap">
+    select * from menu as m
+    left join permission as p
+    on m.permission_id = p.pid
+    where parent_id is null
+  </select>
+
+  <select id="listChildMenu" resultMap="BaseResultMap">
+    select * from menu as m
+    left join permission as p
+    on m.permission_id = p.pid
+    where parent_id = #{id}
+  </select>
+
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from menu where id = #{id,jdbcType=BIGINT}
   </delete>

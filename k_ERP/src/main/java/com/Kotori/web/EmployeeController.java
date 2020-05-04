@@ -10,6 +10,9 @@ import org.apache.commons.io.IOUtils;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -19,12 +22,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.HandlerMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -219,6 +224,11 @@ public class EmployeeController {
         wb.write(response.getOutputStream());
     }
 
+    /***
+     * @brief  Download excel template from server
+     * @params request, response
+     * @return null
+     */
     @RequestMapping("/downloadTemplate.action")
     @ResponseBody
     public void downloadTemplate(HttpServletRequest request, HttpServletResponse response) {
@@ -242,5 +252,64 @@ public class EmployeeController {
         }
     }
 
+    /***
+     * @brief  Upload excel and conserve all items in database
+     * @params excel
+     * @return AjaxResult indicating success or failure
+     */
+    @RequestMapping("uploadExcel.action")
+    @ResponseBody
+    public AjaxResult uploadExcel(MultipartFile excel){
+        AjaxResult ajaxResult =new AjaxResult();
+        try {
+            HSSFWorkbook wb = new HSSFWorkbook(excel.getInputStream());
+            HSSFSheet sheet = wb.getSheetAt(0);
+            int lastRowNum = sheet.getLastRowNum();
+            for (int i = 1; i <= lastRowNum; i++) {
+                HSSFRow row = sheet.getRow(i);
 
+                // No need to set id because id is naturally increasing in database
+                String username = getValue(row.getCell(1));
+                String inputtime = getValue(row.getCell(2));
+                String tel = getValue(row.getCell(3));
+                String email = getValue(row.getCell(4));
+
+                Date date = null;
+                if (null != inputtime) {
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                    date = simpleDateFormat.parse(inputtime);
+                }
+
+                Employee employee = new Employee();
+                employee.setUsername(username);
+                employee.setInputtime(date);
+                employee.setTel(tel);
+                employee.setEmail(email);
+
+                employeeService.saveEmployee(employee);
+            }
+
+            ajaxResult.setMsg("上传成功");
+            ajaxResult.setResult(true);
+
+        } catch (Exception e) {
+            ajaxResult.setMsg("上传失败");
+            ajaxResult.setResult(false);
+            e.printStackTrace();
+        }
+        return ajaxResult;
+    }
+
+    /***
+     * @brief  Force to read cell and obtain cell value in String format
+     * @params cell
+     * @return cell value in String
+     */
+    private String getValue(Cell cell){
+        if (null == cell) {
+            return null;
+        }
+        cell.setCellType(CellType.STRING);
+        return cell.getRichStringCellValue().getString();
+    }
 }

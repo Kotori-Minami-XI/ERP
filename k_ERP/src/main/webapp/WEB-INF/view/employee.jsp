@@ -71,7 +71,7 @@
 </div>
 
 <div id="upload_dialog">
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" id="uploadForm">
         <tabel>
             <tr>
                 <td><input type="file" name="excel" style="width: 180px; margin-top: 20px; margin-left: 5px;"></td>

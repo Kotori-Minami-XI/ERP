@@ -98,8 +98,7 @@ $(function () {
         window.open("/importExcel.action");
     });
 
-
-    // refresh button
+    // Refresh button
     $('#refresh').click(function () {
         $("#keyword").val("");
         $('#datagrid').datagrid({
@@ -110,7 +109,7 @@ $(function () {
         });
     });
 
-    // delete button
+    // Delete button
     $("#delete").click(function () {
         var rowData = $("#datagrid").datagrid("getSelected");
         if(!rowData){
@@ -256,7 +255,19 @@ $(function () {
         buttons:[{
             text:'保存',
             handler:function(){
-
+                $("#uploadForm").form("submit", {
+                    url: "/uploadExcel.action",
+                    success:function (data) {
+                        data = $.parseJSON(data);
+                        if (data.result) {
+                            $.messager.alert("提示",data.msg);
+                            $("#upload_dialog").dialog("close");
+                            $("#datagrid").datagrid("reload");
+                        } else {
+                            $.messager.alert("提示",data.msg);
+                        }
+                    }
+                });
             }
         },{
             text:'关闭',

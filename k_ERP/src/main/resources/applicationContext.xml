@@ -28,4 +28,14 @@
     <!-- Import shiro config -->
     <import resource="classpath:application-shiro.xml"/>
 
+    <!-- aop config -->
+    <bean id="SystemAspect" class="com.Kotori.aspect.SystemAspect"></bean>
+    <aop:config>
+        <aop:pointcut expression="execution(* com.Kotori.service.*.*(..))"
+                      id="servicePoint" />
+        <aop:aspect ref="SystemAspect">
+            <aop:after method="writeLog" pointcut-ref="servicePoint"/>
+        </aop:aspect>
+    </aop:config>
+
 </beans>

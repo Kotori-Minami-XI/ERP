@@ -53,6 +53,7 @@ public class LoginFormFilter extends FormAuthenticationFilter {
             } else if (exceptionName.equals(IncorrectCredentialsException.class.getName())) {
                 ajaxResult.setMsg("密码不正确");
             } else {
+                e.printStackTrace();
                 ajaxResult.setMsg("未知错误");
             }
         }

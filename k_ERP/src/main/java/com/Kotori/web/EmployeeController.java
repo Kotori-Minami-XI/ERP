@@ -6,6 +6,9 @@ import com.Kotori.domain.PageListResult;
 import com.Kotori.domain.QueryViewObject;
 import com.Kotori.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.poi.hssf.usermodel.HSSFRow;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.shiro.authz.AuthorizationException;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.crypto.hash.Md5Hash;
@@ -18,6 +21,9 @@ import org.springframework.web.method.HandlerMethod;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 @Controller
 public class EmployeeController {
@@ -42,8 +48,8 @@ public class EmployeeController {
      */
     @RequestMapping("/getEmployeeList.action")
     @ResponseBody
-    public PageListResult getEmployeeList(QueryViewObject queryViewObject) {
-        PageListResult page = employeeService.getEmployeeList(queryViewObject);
+    public PageListResult getEmployeePage(QueryViewObject queryViewObject) {
+        PageListResult page = employeeService.getEmployeePage(queryViewObject);
         return page;
     }
 
@@ -153,5 +159,56 @@ public class EmployeeController {
         } else {
             response.sendRedirect("illegalAccess.jsp");
         }
+    }
+
+    @RequestMapping("/importExcel.action")
+    @ResponseBody
+    public void importExcel(HttpServletResponse response) throws IOException {
+        List<Employee> list = employeeService.getEmployeeList();
+
+        // Step 1: Create excel by Apache POI
+        HSSFWorkbook wb = new HSSFWorkbook();
+        HSSFSheet sheet = wb.createSheet("员工数据");
+
+        // Step 2: Set rows in the sheet
+        HSSFRow headerRow = sheet.createRow(0);
+        headerRow.createCell(0).setCellValue("编号");
+        headerRow.createCell(1).setCellValue("用户名");
+        headerRow.createCell(2).setCellValue("入职日期");
+        headerRow.createCell(3).setCellValue("电话");
+        headerRow.createCell(4).setCellValue("邮件");
+
+        for (int i = 0; i < list.size(); i++) {
+            Employee employee = list.get(i);
+            HSSFRow currentRow = sheet.createRow(i + 1);
+            currentRow.createCell(0).setCellValue(employee.getId());
+            currentRow.createCell(1).setCellValue(employee.getUsername());
+
+            if (null == employee.getInputtime()) {
+                currentRow.createCell(2).setCellValue("");
+            } else {
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                String format = simpleDateFormat.format(employee.getInputtime());
+                currentRow.createCell(2).setCellValue(format);
+            }
+
+            if (null == employee.getTel()) {
+                currentRow.createCell(3).setCellValue("");
+            } else {
+                currentRow.createCell(3).setCellValue(employee.getTel());
+            }
+
+            if (null == employee.getEmail()) {
+                currentRow.createCell(4).setCellValue("");
+            } else {
+                currentRow.createCell(4).setCellValue(employee.getEmail());
+            }
+        }
+
+        // Step 3: Response to the request
+        // Convert filename consists of UTF-8 characters into ios8859-1
+        String filename = new String("员工数据.xls".getBytes("UTF-8"), "iso8859-1");
+        response.setHeader("content-Disposition","attachment;filename=" + filename);
+        wb.write(response.getOutputStream());
     }
 }

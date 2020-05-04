@@ -19,6 +19,8 @@
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" id="refresh">刷新</a>
     <input type="text" id="keyword" style="width:200px; height:30px; padding-left: 5px">
     <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" id="search">搜索员工</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" id="export">导出</a>
+    <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit'" id="import">导入</a>
 </div>
 
 <%-- Datagrid --%>

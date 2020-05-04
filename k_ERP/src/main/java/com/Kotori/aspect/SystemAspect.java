@@ -21,7 +21,6 @@ public class SystemAspect {
      * @throws JsonProcessingException
      */
     public void writeLog(JoinPoint joinPoint) throws JsonProcessingException {
-        System.out.println("记录日志");
         Systemlog systemlog = new Systemlog();
 
         // ThreadLocal to obtain the request that is stored in interceptor

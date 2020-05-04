@@ -29,4 +29,6 @@ public interface EmployeeMapper {
     List<String> getRolesById(Long id);
 
     List<String> getPermissionsById(Long id);
+
+    List<Employee> getAllEmployee();
 }

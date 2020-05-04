@@ -81,4 +81,8 @@
     where rid in (select rid from employee_role_rel where eid=#{id})
   </select>
 
+  <select id="getAllEmployee" resultType="com.Kotori.domain.Employee">
+    select * from employee
+  </select>
+
 </mapper>

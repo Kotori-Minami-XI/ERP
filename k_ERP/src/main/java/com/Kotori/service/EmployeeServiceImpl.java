@@ -20,7 +20,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     private EmployeeMapper employeeMapper;
 
     @Override
-    public PageListResult getEmployeeList(QueryViewObject queryViewObject) {
+    public PageListResult getEmployeePage(QueryViewObject queryViewObject) {
         Page<Object> page = PageHelper.startPage(queryViewObject.getPage(), queryViewObject.getRows());
         List<Employee> employeeList = employeeMapper.selectAll();
 
@@ -83,5 +83,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public List<String> getPermissionsById(Long id) {
         return employeeMapper.getPermissionsById(id);
+    }
+
+    @Override
+    public List<Employee> getEmployeeList() {
+        return employeeMapper.getAllEmployee();
     }
 }

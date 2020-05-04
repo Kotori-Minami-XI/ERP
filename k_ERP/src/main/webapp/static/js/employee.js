@@ -88,11 +88,16 @@ $(function () {
         });
     });
 
+    // Import button
+    $('#export').click(function () {
+        window.open("/importExcel.action");
+    });
+
     // refresh button
     $('#refresh').click(function () {
         $("#keyword").val("");
         $('#datagrid').datagrid({
-            url:"/getEmployeeList.action",
+            url:"/getEmployeePage.action",
             success:function(data) {
                 $("#datagrid").datagrid("loadData",data);
             }

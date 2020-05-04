@@ -8,7 +8,7 @@ import com.Kotori.domain.QueryViewObject;
 import java.util.List;
 
 public interface EmployeeService {
-    public PageListResult getEmployeeList(QueryViewObject queryViewObject);
+    public PageListResult getEmployeePage(QueryViewObject queryViewObject);
 
     void saveEmployee(Employee employee);
 
@@ -23,4 +23,6 @@ public interface EmployeeService {
     List<String> getRolesById(Long id);
 
     List<String> getPermissionsById(Long id);
+
+    List<Employee> getEmployeeList();
 }

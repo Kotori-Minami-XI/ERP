@@ -89,9 +89,15 @@ $(function () {
     });
 
     // Import button
+    $('#import').click(function () {
+        $("#upload_dialog").dialog("open");
+    });
+
+    // Export button
     $('#export').click(function () {
         window.open("/importExcel.action");
     });
+
 
     // refresh button
     $('#refresh').click(function () {
@@ -189,7 +195,7 @@ $(function () {
         }
     });
 
-    /* Dialog */
+    /* Add & Edit Dialog */
     $("#dialog").dialog({
         width:350,
         height:400,
@@ -240,6 +246,30 @@ $(function () {
                 $("#dialog").dialog("close");
             }
         }]
+    });
+
+    /* Upload Dialog */
+    $("#upload_dialog").dialog({
+        width:260,
+        height:180,
+        title:"导入Excel",
+        buttons:[{
+            text:'保存',
+            handler:function(){
+
+            }
+        },{
+            text:'关闭',
+            handler:function(){
+                $("#upload_dialog").dialog("close");
+            }
+        }],
+        closed:true
+    })
+
+    // Download Employee Template
+    $("#downloadTemplate").click(function () {
+        window.open("/downloadTemplate.action");
     });
 
 });

@@ -6,6 +6,7 @@ import com.Kotori.domain.PageListResult;
 import com.Kotori.domain.QueryViewObject;
 import com.Kotori.service.EmployeeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.IOUtils;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -19,9 +20,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.HandlerMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
@@ -161,6 +163,11 @@ public class EmployeeController {
         }
     }
 
+    /***
+     * @brief  Create Excel workbook and render the workbook to store employee Info
+     * @params response
+     * @throws IOException
+     */
     @RequestMapping("/importExcel.action")
     @ResponseBody
     public void importExcel(HttpServletResponse response) throws IOException {
@@ -211,4 +218,29 @@ public class EmployeeController {
         response.setHeader("content-Disposition","attachment;filename=" + filename);
         wb.write(response.getOutputStream());
     }
+
+    @RequestMapping("/downloadTemplate.action")
+    @ResponseBody
+    public void downloadTemplate(HttpServletRequest request, HttpServletResponse response) {
+        FileInputStream in = null;
+        try {
+            String filename = new String("EmployeeTemplate.xls");
+            response.setHeader("content-Disposition","attachment;filename=" + filename);
+
+            String realPath = request.getSession().getServletContext().getRealPath("/static/EmployeeTemplate.xls");
+
+            in = new FileInputStream(realPath);
+            IOUtils.copy(in, response.getOutputStream());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try{
+                in.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 }

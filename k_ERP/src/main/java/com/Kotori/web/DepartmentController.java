@@ -17,7 +17,7 @@ public class DepartmentController {
 
     /***
      * @brief  Obtain all departments from database
-     * @param  null
+     * @params null
      * @return list of departments wrapped in json
      */
     @RequestMapping("/getDepartmentList.action")

@@ -1,10 +1,11 @@
-package com.Kotori.service;
+package com.Kotori.service.impl;
 
 import com.Kotori.domain.AjaxResult;
 import com.Kotori.domain.Menu;
 import com.Kotori.domain.PageListResult;
 import com.Kotori.domain.QueryViewObject;
 import com.Kotori.mapper.MenuMapper;
+import com.Kotori.service.MenuService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

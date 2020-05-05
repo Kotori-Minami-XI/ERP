@@ -16,7 +16,7 @@ public class SystemAspect {
     private SystemlogMapper systemlogMapper;
 
     /***
-     * @brief  Write logs after operation by aspect
+     * @brief  Record logs after database operation
      * @params joinPoint
      * @throws JsonProcessingException
      */

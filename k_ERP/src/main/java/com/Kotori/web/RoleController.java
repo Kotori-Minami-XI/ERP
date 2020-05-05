@@ -96,6 +96,11 @@ public class RoleController {
         return ajaxResult;
     }
 
+    /***
+     * @brief  Remove role from database by id
+     * @params rid
+     * @return Ajax callback info indicating success or failure
+     */
     @RequestMapping("/deleteRole.action")
     @ResponseBody
     public AjaxResult deleteRole(Long rid) {
@@ -112,6 +117,11 @@ public class RoleController {
         return ajaxResult;
     }
 
+    /***
+     * @brief  Get role id by employee id throw combination query
+     * @params id
+     * @return List of Role id belong to the employee
+     */
     @RequestMapping("/getRidByEid.action")
     @ResponseBody
     public List<Long> getRidByEid(Long id) {

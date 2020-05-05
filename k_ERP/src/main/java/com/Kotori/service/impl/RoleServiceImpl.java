@@ -1,7 +1,8 @@
-package com.Kotori.service;
+package com.Kotori.service.impl;
 
 import com.Kotori.domain.*;
 import com.Kotori.mapper.RoleMapper;
+import com.Kotori.service.RoleService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

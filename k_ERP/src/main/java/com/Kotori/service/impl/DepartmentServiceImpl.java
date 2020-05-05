@@ -1,7 +1,8 @@
-package com.Kotori.service;
+package com.Kotori.service.impl;
 
 import com.Kotori.domain.Department;
 import com.Kotori.mapper.DepartmentMapper;
+import com.Kotori.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

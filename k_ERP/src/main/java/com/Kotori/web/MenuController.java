@@ -17,11 +17,21 @@ public class MenuController {
     @Autowired
     private MenuService menuService;
 
+    /***
+     * @breif  Forward to menu page
+     * @params null
+     * @return Resource location of menu page
+     */
     @RequestMapping("menu.action")
     public String menu() {
         return "/WEB-INF/view/menu.jsp";
     }
 
+    /***
+     * @breif  Obtain menu page
+     * @params queryViewObject
+     * @return Obtained menu items in page
+     */
     @RequestMapping("/getMenuPage.action")
     @ResponseBody
     public PageListResult getMenuPage(QueryViewObject queryViewObject) {
@@ -29,12 +39,22 @@ public class MenuController {
         return pageListResult;
     }
 
+    /***
+     * @brief  Obtain all parent list items from database
+     * @params null
+     * @return List of parent menu
+     */
     @RequestMapping("/getParentList.action")
     @ResponseBody
     public List<Menu> getParentList() {
         return menuService.getParentList();
     }
 
+    /***
+     * @brief  Receive submitted form and save menu in database
+     * @params menu
+     * @return AjaxResult indicating success or failure
+     */
     @RequestMapping("/saveMenu.action")
     @ResponseBody
     public AjaxResult saveMenu(Menu menu) {
@@ -50,12 +70,22 @@ public class MenuController {
         return ajaxResult;
     }
 
+    /***
+     * @brief  Update menu into database
+     * @params menu
+     * @return AjaxResult indicating success or failure
+     */
     @RequestMapping("/updateMenu.action")
     @ResponseBody
     public AjaxResult updateMenu(Menu menu) {
         return menuService.updateMenu(menu);
     }
 
+    /***
+     * @brief  Remove menu from database by id
+     * @params id
+     * @return AjaxResult indicating success or failure
+     */
     @RequestMapping("/deleteMenuById.action")
     @ResponseBody
     public AjaxResult deleteMenuById(Long id) {
@@ -71,6 +101,13 @@ public class MenuController {
         return ajaxResult;
     }
 
+    /***
+     * @brief  Obtain the current subject form security manager and
+     *         check access for the subject if the subject is not admin
+     * @params null
+     * @return List of menu which contains available access for the
+     *         current subject
+     */
     @RequestMapping("/getMenuTree.action")
     @ResponseBody
     public List<Menu> getMenuTree() {
@@ -87,6 +124,12 @@ public class MenuController {
         return menuTree;
     }
 
+    /****
+     * @brief  Iterate all sub menu by regression and remove unavailable
+     *         access for the current subject
+     * @params menuTree
+     * @return null
+     */
     private void checkPermission(List<Menu> menuTree) {
         Subject subject = SecurityUtils.getSubject();
         // Remove menus that are not authorized for the current subject

@@ -1,7 +1,8 @@
-package com.Kotori.service;
+package com.Kotori.service.impl;
 
 import com.Kotori.domain.Permission;
 import com.Kotori.mapper.PermissionMapper;
+import com.Kotori.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

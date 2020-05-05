@@ -14,6 +14,11 @@ public class PermissionController {
     @Autowired
     private PermissionService permissionService;
 
+    /***
+     * @brief  Obtain all permissions from database
+     * @params null
+     * @return
+     */
     @RequestMapping("/getPermissionList.action")
     @ResponseBody
     public List<Permission> getPermissionList(){

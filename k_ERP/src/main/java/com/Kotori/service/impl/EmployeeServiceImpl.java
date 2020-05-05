@@ -1,10 +1,11 @@
-package com.Kotori.service;
+package com.Kotori.service.impl;
 
 import com.Kotori.domain.Employee;
 import com.Kotori.domain.PageListResult;
 import com.Kotori.domain.QueryViewObject;
 import com.Kotori.domain.Role;
 import com.Kotori.mapper.EmployeeMapper;
+import com.Kotori.service.EmployeeService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;

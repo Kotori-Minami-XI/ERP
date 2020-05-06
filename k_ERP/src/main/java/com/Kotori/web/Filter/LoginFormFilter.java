@@ -18,7 +18,7 @@ public class LoginFormFilter extends FormAuthenticationFilter {
     /***
      * @brief  Set callback info when login procedure succeeds
      * @params token, subject, request, response
-     * @return A response which contains an AjaxResult in json format
+     * @return False if the login request is granted
      * @throws Exception
      */
     @Override
@@ -37,7 +37,7 @@ public class LoginFormFilter extends FormAuthenticationFilter {
     /***
      * @brief  Set callback info when login procedure fails
      * @params token, subject, request, response
-     * @return A response which contains an AjaxResult in json format
+     * @return False
      * @throws Exception
      */
     @Override

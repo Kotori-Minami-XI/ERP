@@ -26,10 +26,29 @@ public class SystemAspect {
         // ThreadLocal to obtain the request that is stored in interceptor
         HttpServletRequest request = RequestUtil.getRequest();
 
-        // Obtain IP from request
+        // Obtain IP from the current request stored in ThreadLocal
         String ip = null;
         if (null != request) {
-            ip = request.getRemoteAddr();
+            ip = request.getHeader("x-forwarded-for");
+            if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("Proxy-Client-IP");
+            }
+
+            if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("HTTP_CLIENT_IP");
+            }
+
+            if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+            }
+
+            if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+                ip = request.getRemoteAddr();
+            }
+
+            if (ip == null) {
+                ip = request.getRemoteAddr();
+            }
         }
 
         // Obtain method and params info from joint point

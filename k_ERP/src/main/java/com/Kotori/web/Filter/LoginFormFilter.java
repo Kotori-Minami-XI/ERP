@@ -69,4 +69,18 @@ public class LoginFormFilter extends FormAuthenticationFilter {
         return false;
     }
 
+    /***
+     * @brief  Determine the following procedures for the current login request. Login filter
+     *         would not execute login procedure if the current subject has already logged in.
+     *         Otherwise it follows standard login procedure.
+     * @params request, response, mappedValue
+     * @return False if this request is the first login request for the current subject
+     */
+    @Override
+    protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
+        if(isLoginRequest(request, response) && isLoginSubmission(request, response)){
+            return false;
+        }
+        return super.isAccessAllowed(request, response, mappedValue);
+    }
 }

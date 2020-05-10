@@ -1,8 +1,9 @@
 # ERP
 A one-stop ERP that constructed by SSM 
 
-##Databse
-### 1. employee table
+## Database 
+### Table generation
+#### 1. employee table
 ```
 CREATE TABLE `employee` (
      `id` bigint NOT NULL AUTO_INCREMENT,
@@ -20,7 +21,7 @@ CREATE TABLE `employee` (
    ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 ```
 
-### 2. department table
+#### 2. department table
 ```
 CREATE TABLE `department` (
   `id` bigint NOT NULL AUTO_INCREMENT,
@@ -29,7 +30,7 @@ CREATE TABLE `department` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 ```
 
-### 3. menu table
+#### 3. menu table
 ```
 CREATE TABLE `menu` (
   `id` bigint NOT NULL AUTO_INCREMENT,
@@ -45,7 +46,7 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 ```
 
-### 4. role table
+#### 4. role table
 ```
 CREATE TABLE `role` (
   `rid` bigint NOT NULL AUTO_INCREMENT,
@@ -55,7 +56,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 ```
 
-### 5. system Log table
+#### 5. system Log table
 ```
 CREATE TABLE `systemlog` (
   `id` bigint NOT NULL AUTO_INCREMENT,
@@ -67,7 +68,7 @@ CREATE TABLE `systemlog` (
 ) ENGINE=InnoDB AUTO_INCREMENT=209 DEFAULT CHARSET=utf8;
 ```
 
-### 6. permission table
+#### 6. permission table
 ```
 CREATE TABLE `permission` (
   `pid` bigint NOT NULL AUTO_INCREMENT,
@@ -77,7 +78,7 @@ CREATE TABLE `permission` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 ```
 
-### 7. employee_role_rel table
+#### 7. employee_role_rel table
 ```
 CREATE TABLE `employee_role_rel` (
   `eid` bigint NOT NULL,
@@ -89,7 +90,7 @@ CREATE TABLE `employee_role_rel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
-### 8. role_permission_rel table
+#### 8. role_permission_rel table
 ```
 CREATE TABLE `role_permission_rel` (
   `rid` bigint NOT NULL,

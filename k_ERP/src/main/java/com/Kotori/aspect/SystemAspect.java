@@ -27,8 +27,9 @@ public class SystemAspect {
         HttpServletRequest request = RequestUtil.getRequest();
 
         // Obtain IP from the current request stored in ThreadLocal
-        String ip = null;
-        if (null != request) {
+        // Todo: Figure out why exception is occasionally thrown
+        String ip = "127.0.0.1"; // Hard coded
+        if (null == ip && null != request) {
             ip = request.getHeader("x-forwarded-for");
             if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
                 ip = request.getHeader("Proxy-Client-IP");
@@ -63,5 +64,7 @@ public class SystemAspect {
         systemlog.setParams(params);
 
         systemlogMapper.insert(systemlog);
+
+        RequestUtil.local.remove();
     }
 }

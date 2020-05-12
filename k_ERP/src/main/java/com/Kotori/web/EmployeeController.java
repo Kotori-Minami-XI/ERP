@@ -52,7 +52,7 @@ public class EmployeeController {
      * @params null
      * @return Divide all results into pages and return one page
      */
-    @RequestMapping("/getEmployeeList.action")
+    @RequestMapping("/getEmployeePage.action")
     @ResponseBody
     public PageListResult getEmployeePage(QueryViewObject queryViewObject) {
         PageListResult page = employeeService.getEmployeePage(queryViewObject);

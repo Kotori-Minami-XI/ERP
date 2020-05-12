@@ -2,7 +2,7 @@ $(function () {
 
     // Data grid
     $('#datagrid').datagrid({
-        url:"/getEmployeeList.action",
+        url:"/getEmployeePage.action",
         columns:[[
             {field:'username',title:'姓名',width:100,align:'center'},
             {field:'inputtime',title:'入职时间',width:100,align:'center'},

@@ -21,6 +21,15 @@ CREATE TABLE `employee` (
    ) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 ```
 
+```aidl
+INSERT INTO `k_erp`.`employee`(`id`, `username`, `inputtime`, `tel`, `email`, `state`, `admin`, `dept_no`, `password`) VALUES (1, 'Kotori', '2020-04-08 16:00:00', '18600000001', 'Kotori@qq.com', 0, 0, 1, '1234');
+INSERT INTO `k_erp`.`employee`(`id`, `username`, `inputtime`, `tel`, `email`, `state`, `admin`, `dept_no`, `password`) VALUES (2, 'Honoka', '2020-04-07 16:00:00', '18600000002', 'Honoka@qq.com', 0, 0, 1, '1234');
+INSERT INTO `k_erp`.`employee`(`id`, `username`, `inputtime`, `tel`, `email`, `state`, `admin`, `dept_no`, `password`) VALUES (3, 'Eri', '2020-04-08 16:00:00', '18600000003', 'Eri@qq.com', 0, 1, 1, '1234');
+INSERT INTO `k_erp`.`employee`(`id`, `username`, `inputtime`, `tel`, `email`, `state`, `admin`, `dept_no`, `password`) VALUES (4, 'Nozomi', '2020-04-07 16:00:00', '18600000004', 'Nozomi@qq.com', 0, 1, 1, '1234');
+INSERT INTO `k_erp`.`employee`(`id`, `username`, `inputtime`, `tel`, `email`, `state`, `admin`, `dept_no`, `password`) VALUES (5, 'Nico', '2020-05-22 07:56:05', '18600000005', 'Nico@qq.com', 0, 1, 1, '1234');
+INSERT INTO `k_erp`.`employee`(`id`, `username`, `inputtime`, `tel`, `email`, `state`, `admin`, `dept_no`, `password`) VALUES (6, 'Umi', '2020-05-28 16:00:00', '18600000006', 'Umi@qq.com', 1, 1, 1, '1234');
+```
+
 #### 2. department table
 ```
 CREATE TABLE `department` (
@@ -28,6 +37,11 @@ CREATE TABLE `department` (
   `name` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+```
+
+```aidl
+INSERT INTO `k_erp`.`department`(`id`, `name`) VALUES (1, '技术部');
+INSERT INTO `k_erp`.`department`(`id`, `name`) VALUES (2, '市场部');
 ```
 
 #### 3. menu table
@@ -46,6 +60,13 @@ CREATE TABLE `menu` (
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
 ```
 
+```aidl
+INSERT INTO `k_erp`.`menu`(`id`, `text`, `url`, `parent_id`, `permission_id`) VALUES (1, '系统管理', NULL, NULL, NULL);
+INSERT INTO `k_erp`.`menu`(`id`, `text`, `url`, `parent_id`, `permission_id`) VALUES (2, '员工管理', '/employee.action', 1, 4);
+INSERT INTO `k_erp`.`menu`(`id`, `text`, `url`, `parent_id`, `permission_id`) VALUES (3, '职能管理', '/role.action', 1, 5);
+INSERT INTO `k_erp`.`menu`(`id`, `text`, `url`, `parent_id`, `permission_id`) VALUES (4, '菜单管理', '/menu.action', 1, 6);
+```
+
 #### 4. role table
 ```
 CREATE TABLE `role` (
@@ -54,6 +75,12 @@ CREATE TABLE `role` (
   `rname` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`rid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+```
+
+```aidl
+INSERT INTO `k_erp`.`role`(`rid`, `rnum`, `rname`) VALUES (1, 'admin', '管理员');
+INSERT INTO `k_erp`.`role`(`rid`, `rnum`, `rname`) VALUES (2, 'hr', '人事');
+INSERT INTO `k_erp`.`role`(`rid`, `rnum`, `rname`) VALUES (3, 'manager', '经理');
 ```
 
 #### 5. system Log table
@@ -78,6 +105,15 @@ CREATE TABLE `permission` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 ```
 
+```aidl
+INSERT INTO `k_erp`.`permission`(`pid`, `pname`, `presource`) VALUES (1, '员工添加', 'employee:add');
+INSERT INTO `k_erp`.`permission`(`pid`, `pname`, `presource`) VALUES (2, '员工删除', 'employee:delete');
+INSERT INTO `k_erp`.`permission`(`pid`, `pname`, `presource`) VALUES (3, '员工编辑', 'employee:edit');
+INSERT INTO `k_erp`.`permission`(`pid`, `pname`, `presource`) VALUES (4, '员工主页', 'employee:index');
+INSERT INTO `k_erp`.`permission`(`pid`, `pname`, `presource`) VALUES (5, '角色主页', 'role:index');
+INSERT INTO `k_erp`.`permission`(`pid`, `pname`, `presource`) VALUES (6, '菜单主页', 'menu:index');
+```
+
 #### 7. employee_role_rel table
 ```
 CREATE TABLE `employee_role_rel` (
@@ -90,6 +126,12 @@ CREATE TABLE `employee_role_rel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
 
+```aidl
+INSERT INTO `k_erp`.`employee_role_rel`(`eid`, `rid`) VALUES (1, 1);
+INSERT INTO `k_erp`.`employee_role_rel`(`eid`, `rid`) VALUES (1, 2);
+INSERT INTO `k_erp`.`employee_role_rel`(`eid`, `rid`) VALUES (1, 3);
+```
+
 #### 8. role_permission_rel table
 ```
 CREATE TABLE `role_permission_rel` (
@@ -98,7 +140,14 @@ CREATE TABLE `role_permission_rel` (
   PRIMARY KEY (`rid`,`pid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 ```
-
+```aidl
+INSERT INTO `k_erp`.`role_permission_rel`(`rid`, `pid`) VALUES (1, 1);
+INSERT INTO `k_erp`.`role_permission_rel`(`rid`, `pid`) VALUES (1, 2);
+INSERT INTO `k_erp`.`role_permission_rel`(`rid`, `pid`) VALUES (1, 3);
+INSERT INTO `k_erp`.`role_permission_rel`(`rid`, `pid`) VALUES (1, 4);
+INSERT INTO `k_erp`.`role_permission_rel`(`rid`, `pid`) VALUES (1, 5);
+INSERT INTO `k_erp`.`role_permission_rel`(`rid`, `pid`) VALUES (1, 6);
+```
 
 
 
